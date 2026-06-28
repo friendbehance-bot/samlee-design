@@ -66,7 +66,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 reveal">{featured.map((p:any)=>
             <Link key={p.id} href={"/furniture/"+p.id} className="group rounded-xl overflow-hidden bg-[#f5f5f0] dark:bg-[#1a1a1a] border border-[#e5e5e0] dark:border-[#2a2a2a] hover:-translate-y-1 transition-all">
-              {p.images?.[0]&&<div className="aspect-[4/3] overflow-hidden"><img decoding="async" src={assetPath(p.images[0])} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/></div>}
+              {p.images?.[0]&&<div className="aspect-[4/3] overflow-hidden"><img decoding="async" src={assetPath(p.images[0])} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>}
               <div className="p-4"><div className="text-[10px] uppercase tracking-wider text-[#6b7280] dark:text-[#9ca3af] mb-1">{p.category}</div><h3 className="font-semibold text-sm mb-0.5">{p.title}</h3><p className="text-xs text-[#6b7280] dark:text-[#9ca3af] line-clamp-2">{p.description}</p></div>
             </Link>
           )}</div>
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="flex justify-between items-end mb-10"><div><span className="inline-block px-3 py-1 rounded-full bg-[#059669]/10 text-[#059669] text-[11px] font-semibold tracking-wider uppercase mb-3">Projects</span><h2 className="text-3xl md:text-4xl font-bold tracking-tight">{t("section.projects")}</h2></div><Link href="/projects" className="hidden md:inline-flex items-center gap-1 text-sm font-medium text-[#6b7280] dark:text-[#9ca3af] hover:text-[#059669] transition-colors">{t("btn.allCases")}</Link></div>
           <div className="grid md:grid-cols-2 gap-6 reveal">{cases.map((c:any)=>
             <Link key={c.id} href={"/projects/"+c.id} className="rounded-xl overflow-hidden bg-[#f5f5f0] dark:bg-[#1a1a1a] border border-[#e5e5e0] dark:border-[#2a2a2a] hover:-translate-y-1 transition-all">
-              {c.images?.[0]&&<div className="aspect-[16/9] overflow-hidden"><img decoding="async" src={assetPath(c.images[0])} alt={c.title} className="w-full h-full object-cover" loading="lazy"/></div>}
+              {c.images?.[0]&&<div className="aspect-[16/9] overflow-hidden"><img decoding="async" src={assetPath(c.images[0])} alt={c.title} className="w-full h-full object-cover" /></div>}
               <div className="p-6"><div className="flex items-center gap-2 mb-2"><span className="text-xs px-2 py-0.5 rounded-full bg-[#059669]/10 text-[#059669] font-medium">{c.role}</span><span className="text-xs text-[#6b7280]">{c.year}</span></div><h3 className="font-semibold text-base mb-1">{c.title}</h3><p className="text-sm text-[#6b7280] dark:text-[#9ca3af] mb-3">{c.description}</p><div className="flex gap-4 text-xs text-[#6b7280] dark:text-[#9ca3af]"><span>{t("caseLabels.client")}: {c.client}</span><span>{t("caseLabels.scope")}: {c.scope}</span><span>{t("caseLabels.duration")}: {c.duration}</span></div></div>
             </Link>
           )}</div>
@@ -108,3 +108,4 @@ export default function Home() {
     </>
   );
 }
+
