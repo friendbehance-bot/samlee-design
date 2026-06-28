@@ -1,19 +1,26 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @layer base {
-  body { @apply bg-white text-[#1a1a1a] dark:bg-[#0f0f0f] dark:text-[#f5f5f0]; }
+  body { @apply text-[#1A1A1A]; background:#F6F3EC; font-family:"Inter",system-ui,sans-serif; }
+  h1,h2,h3,.mono { font-family:"Azeret Mono",monospace; }
 }
 
+/* === TYPOGRAPHY === */
 @keyframes typewriter-cursor { 0%,100% { opacity:1; } 50% { opacity:0; } }
-.typewriter-cursor { display:inline-block; width:2px; height:1.2em; background:#b8860b; margin-left:2px; vertical-align:text-bottom; animation:typewriter-cursor 0.8s infinite; }
+.typewriter-cursor { display:inline-block; width:2px; height:1.2em; background:#1A1A1A; margin-left:2px; vertical-align:text-bottom; animation:typewriter-cursor 0.8s infinite; }
 
-@keyframes scale-in { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
-.animate-scale-in { animation:scale-in 0.2s ease-out; }
+/* === ANIMATIONS === */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+.animate-fadeUp { animation:fadeUp 0.7s ease-out forwards; }
 
-@keyframes role-enter { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-@keyframes role-exit { from { opacity:1; transform:translateY(0); } to { opacity:0; transform:translateY(-8px); } }
-.role-enter { animation:role-enter 0.3s ease-out forwards; }
-.role-exit { animation:role-exit 0.3s ease-out forwards; }
+@keyframes bounceArrow { 0%,100% { transform:translateY(0); } 50% { transform:translateY(8px); } }
+.animate-bounceArrow { animation:bounceArrow 1.5s ease infinite; }
 
+/* === REVEAL === */
 .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease-out, transform 0.6s ease-out; }
 .reveal.revealed { opacity:1; transform:translateY(0); }
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background:#F6F3EC; }
+::-webkit-scrollbar-thumb { background:#ccc; border-radius:3px; }
