@@ -18,7 +18,7 @@ export default function Home() {
 
   const label = lang==="en" ? "AVAILABLE FOR WORK" : "开放合作";
   const tagline = lang==="en"
-    ? <>furniture designer<br/>from TAIWAN<br/>working globally.</>
+    ? <>furniture designer<br/>from China<br/>working globally.</>
     : <>办公家具设计师<br/>来自台湾<br/>服务全球。</>;
 
   return (
