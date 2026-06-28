@@ -16,11 +16,11 @@ export default function Furniture() {
   return (
     <section className="pt-32 pb-24">
       <div className="max-w-6xl mx-auto px-6">
-        <span className="inline-block px-3 py-1 rounded-full bg-[#b8860b]/10 text-[#b8860b] text-xs font-semibold tracking-wider uppercase mb-4">Furniture Design</span>
+        <span className="inline-block px-3 py-1 rounded-full bg-[#1A1A1A]/8 text-[#1A1A1A] text-xs font-semibold tracking-wider uppercase mb-4">Furniture Design</span>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">{t("furnitureTitle")}</h1>
-        <p className="text-lg text-[#6b7280] dark:text-[#9ca3af] mb-10 max-w-xl">{t("furnitureDesc")}</p>
-        <div className="flex gap-2 mb-10 flex-wrap">{catKeys.map(k=><button key={k} onClick={()=>setCat(k)} className={"px-5 py-2 rounded-full text-sm font-medium transition-all "+(cat===k?"bg-[#b8860b] text-white":"bg-transparent border border-[#e5e5e0] dark:border-[#2a2a2a] text-[#6b7280] dark:text-[#9ca3af] hover:border-[#b8860b]")}>{cats[k]||k}</button>)}</div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">{filtered.map((p:any)=><Link key={p.id} href={"/furniture/"+p.id} className="group rounded-xl overflow-hidden bg-[#f5f5f0] dark:bg-[#1a1a1a] border border-[#e5e5e0] dark:border-[#2a2a2a] hover:-translate-y-1 transition-all">{p.images?.[0]&&<div className="aspect-[4/3] overflow-hidden"><img decoding="async" src={assetPath(p.images[0])} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/></div>}<div className="p-4"><div className="text-[10px] uppercase tracking-wider text-[#6b7280] dark:text-[#9ca3af] mb-1">{p.category}</div><h3 className="font-semibold text-sm mb-0.5">{p.title}</h3><p className="text-xs text-[#6b7280] dark:text-[#9ca3af]">{p.description}</p></div></Link>)}</div>
+        <p className="text-lg text-[#666] mb-10 max-w-xl">{t("furnitureDesc")}</p>
+        <div className="flex gap-2 mb-10 flex-wrap">{catKeys.map(k=><button key={k} onClick={()=>setCat(k)} className={"px-5 py-2 rounded-full text-sm font-medium transition-all "+(cat===k?"bg-[#1A1A1A] text-white":"bg-transparent border border-[#1A1A1A]/8 text-[#666] hover:border-[#b8860b]")}>{cats[k]||k}</button>)}</div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">{filtered.map((p:any)=><Link key={p.id} href={"/furniture/"+p.id} className="group rounded-xl overflow-hidden  border border-[#1A1A1A]/8 hover:-translate-y-1 transition-all">{p.images?.[0]&&<div className="aspect-[4/3] overflow-hidden"><img decoding="async" src={assetPath(p.images[0])} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/></div>}<div className="p-4"><div className="text-[10px] uppercase tracking-wider text-[#666] mb-1">{p.category}</div><h3 className="font-semibold text-sm mb-0.5">{p.title}</h3><p className="text-xs text-[#666]">{p.description}</p></div></Link>)}</div>
       </div>
     </section>
   );
