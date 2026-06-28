@@ -1,0 +1,134 @@
+[
+  {
+    "id": "shenzhen-bay",
+    "title": "深圳湾：城市与自然的边界",
+    "date": "2024-08",
+    "location": "深圳·南山",
+    "content": "黄昏时分，站在深圳湾畔，对岸是香港元朗的轮廓。海风拂过红树林，城市的喧嚣被水面包裹。连接深港的深圳湾大桥横跨海面，像一条温柔的界线——一边是飞速生长的城市，一边是等待探索的世界。",
+    "images": [
+      "/images/travel/DSC03124.jpg"
+    ],
+    "tags": [
+      "深圳",
+      "海景",
+      "城市"
+    ],
+    "titleEn": "Shenzhen Bay: Where City Meets Nature",
+    "contentEn": "At dusk, standing by Shenzhen Bay, the skyline of Hong Kong's Yuen Long shimmers across the water. The sea breeze sweeps through the mangroves as the city's hustle is softened by the bay. The Shenzhen Bay Bridge stretches across like a gentle boundary—a fast-growing city on one side, a world waiting to be explored on the other.",
+    "src": [
+      "/images/travel/DSC03124.jpg"
+    ]
+  },
+  {
+    "id": "fire-sky",
+    "title": "火烧云：深圳最美的十分钟",
+    "date": "2023-07",
+    "location": "深圳·福田",
+    "content": "这是近十年来我见过最美的深圳火烧云。整个天空被点燃，从深红到橙黄再到玫瑰色，层层叠叠地铺展开来。地面的建筑、街道、行人都被镀上一层金色。我站在天台上按下快门，十分钟后一切归于平静——所以你看，美的东西总是转瞬即逝的。",
+    "images": [
+      "/images/travel/DSC04035.jpg"
+    ],
+    "tags": [
+      "深圳",
+      "火烧云",
+      "日落"
+    ],
+    "titleEn": "Fire Sky: The Most Beautiful 10 Minutes",
+    "contentEn": "This was the most stunning sunset I've seen in Shenzhen in a decade. The entire sky was set ablaze—from deep red to amber to rose, layer upon layer. Buildings, streets, and people were all bathed in gold. I stood on the rooftop, capturing the moment. Ten minutes later, it was all gone—beautiful things are always fleeting.",
+    "src": [
+      "/images/travel/DSC04035.jpg"
+    ]
+  },
+  {
+    "id": "hunan-field",
+    "title": "湖南原野：电线上聊天的麻雀",
+    "date": "2023-10",
+    "location": "湖南·乡间",
+    "content": "湖南秋天的原野，风吹过稻田的声音是最好的白噪音。几只麻雀落在电线上，像五线谱上跳跃的音符。它们叽叽喳喳地聊着天，完全不在意镜头。我在原地站了很久——这种悠闲，已经在城市里丢失太久了。",
+    "images": [
+      "/images/travel/DSC04672.jpg"
+    ],
+    "tags": [
+      "湖南",
+      "原野",
+      "乡村"
+    ],
+    "titleEn": "Hunan Field: Sparrows Chatting on Wires",
+    "contentEn": "An autumn field in Hunan—the sound of wind through rice paddies is the best white noise. A few sparrows perched on the wire, like notes dancing on a staff, chirping away, completely ignoring my camera. I stood there for a long time. This kind of leisure has been lost in the city for too long.",
+    "src": [
+      "/images/travel/DSC04672.jpg"
+    ]
+  },
+  {
+    "id": "city-skyline",
+    "title": "城市远眺：从高处看世界",
+    "date": "2024-05",
+    "location": "深圳",
+    "content": "每一次爬上高处，都会重新认识一座城市。从楼顶看去，街道、公园、建筑、远山组成的不是地图，而是活着的脉络。我们在地上奔波时看不到这些，只有站远了，才发现原来一切都这么有秩序。",
+    "images": [
+      "/images/travel/DSC03740.jpg",
+      "/images/travel/DSC04134.jpg",
+      "/images/travel/DSC04512.jpg"
+    ],
+    "tags": [
+      "城市",
+      "天际线",
+      "建筑"
+    ],
+    "titleEn": "City View: Seeing the World from Above",
+    "contentEn": "Every time I climb high, I rediscover a city. From the rooftop, streets, parks, buildings, and distant mountains form not a map but a living network. Down on the ground, we can't see this. Only from above do we realize how orderly it all is.",
+    "src": [
+      "/images/travel/DSC03740.jpg",
+      "/images/travel/DSC04134.jpg",
+      "/images/travel/DSC04512.jpg"
+    ]
+  },
+  {
+    "id": "mountain-path",
+    "title": "山野之间：自然的另一面",
+    "date": "2024-06",
+    "location": "未知山野",
+    "content": "离开城市，走进山林之后才发现，人需要定期把自己放回自然里。这里没有日程表，没有消息通知，只有树影、鸟鸣和风穿过叶子的声音。最好的设计灵感，往往不是在办公室里想到的，而是在这样的路上。",
+    "images": [
+      "/images/travel/DSC05259.jpg",
+      "/images/travel/DSC05283.jpg",
+      "/images/travel/DSC05679.jpg"
+    ],
+    "tags": [
+      "山林",
+      "自然",
+      "徒步"
+    ],
+    "titleEn": "Among the Mountains: Nature's Other Side",
+    "contentEn": "Leaving the city and entering the forest, I realized that people need to put themselves back in nature periodically. No schedules, no notifications—just tree shadows, birdsong, and the sound of wind through leaves. The best design inspiration often comes not from the office, but from the road.",
+    "src": [
+      "/images/travel/DSC05259.jpg",
+      "/images/travel/DSC05283.jpg",
+      "/images/travel/DSC05679.jpg"
+    ]
+  },
+  {
+    "id": "journey-light",
+    "title": "旅途光影：停下来就好",
+    "date": "2024-09",
+    "location": "旅途路上",
+    "content": "摄影最迷人的地方，不是技术多好、设备多贵，而是你愿意为某个瞬间停下来。这趟旅途的零碎片段——一片树叶上的光斑、老墙上的影子、黄昏时分的归鸟——它们算不上什么大作，但每次翻到，都能记起当时按下快门的心情。",
+    "images": [
+      "/images/travel/DSC07420.jpg",
+      "/images/travel/DSC07425.jpg",
+      "/images/travel/DSC07894.jpg"
+    ],
+    "tags": [
+      "旅途",
+      "光影",
+      "生活"
+    ],
+    "titleEn": "Journey Light: Just Stop and Look",
+    "contentEn": "The most charming part of photography isn't the technique or the gear—it's the willingness to stop for a moment. These fragments of the journey—a speck of light on a leaf, a shadow on an old wall, a returning bird at dusk—may not be masterpieces, but each time I look back at them, I remember the feeling of pressing the shutter.",
+    "src": [
+      "/images/travel/DSC07420.jpg",
+      "/images/travel/DSC07425.jpg",
+      "/images/travel/DSC07894.jpg"
+    ]
+  }
+]

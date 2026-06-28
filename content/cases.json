@@ -1,0 +1,50 @@
+[
+  {
+    "id": "office-renovation-2026",
+    "title": "某科技公司总部办公空间升级",
+    "year": 2026,
+    "client": "某科技公司",
+    "role": "项目经理",
+    "scope": "1500㎡ 开放式办公区",
+    "duration": "4个月",
+    "description": "负责该项目从需求分析到交付的全流程管理。协调设计团队、供应商和施工方，确保项目在预算内按时交付。通过引入模块化隔断系统，将施工周期缩短20%。",
+    "results": [
+      "工期缩短20%",
+      "成本控制在预算内",
+      "客户满意度95%"
+    ],
+    "images": [
+      "/images/projects/office-renovation/01.jpg",
+      "/images/projects/office-renovation/02.jpg",
+      "/images/projects/office-renovation/03.jpg",
+      "/images/projects/office-renovation/04.jpg"
+    ],
+    "driveLink": "",
+    "titleEn": "Tech Company HQ Office Upgrade",
+    "descriptionEn": "Managed the full process from needs analysis to delivery for a 1500m2 open-plan office. Coordinated design team, suppliers and contractors. Reduced construction timeline by 20% with modular partition system."
+  },
+  {
+    "id": "showroom-2025",
+    "title": "品牌展厅设计与搭建",
+    "year": 2025,
+    "client": "知名办公家具品牌",
+    "role": "项目经理",
+    "scope": "300㎡ 品牌展厅",
+    "duration": "3个月",
+    "description": "统筹品牌展厅从概念设计到落地的全过程。协调空间设计、展品陈列、灯光系统等多个供应商，确保展厅在行业展会前顺利开放。",
+    "results": [
+      "按时交付",
+      "展会期间获200+潜在客户咨询",
+      "获内部设计奖"
+    ],
+    "images": [
+      "/images/projects/showroom/01.jpg",
+      "/images/projects/showroom/02.jpg",
+      "/images/projects/showroom/03.jpg",
+      "/images/projects/showroom/04.jpg"
+    ],
+    "driveLink": "",
+    "titleEn": "Brand Showroom Design & Build",
+    "descriptionEn": "Oversaw the brand showroom from concept to completion. Coordinated spatial design, product displays, and lighting systems. Successfully opened before the industry trade show, generating 200+ leads."
+  }
+]

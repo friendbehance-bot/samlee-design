@@ -1,0 +1,520 @@
+[
+  {
+    "id": "dynasty",
+    "title": "Dynasty 声学隔断系统",
+    "year": 2026,
+    "category": "声学隔断",
+    "role": "产品设计",
+    "featured": true,
+    "description": "模块化声学隔断系统，重塑开放空间的边界与私密性",
+    "details": "",
+    "images": [
+      "/images/furniture/panel/Dynasty_01.jpg",
+      "/images/furniture/panel/Dynasty_02.jpg",
+      "/images/furniture/panel/Dynasty_03.jpg"
+    ],
+    "tags": [
+      "声学",
+      "隔断",
+      "模块化"
+    ],
+    "driveLink": "",
+    "titleEn": "Dynasty Acoustic Partition",
+    "descriptionEn": "Modular acoustic partition system, redefining boundaries and privacy in open spaces",
+    "tagsEn": [
+      "acoustic",
+      "partition",
+      "modular"
+    ]
+  },
+  {
+    "id": "flex-system",
+    "title": "FLEX System 系统家具",
+    "year": 2025,
+    "category": "系统家具",
+    "role": "产品设计",
+    "featured": true,
+    "description": "灵活多变的办公系统，桌柜一体化适配多种场景",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/FLEX_01.png",
+      "/images/furniture/desk/FLEX_02.png",
+      "/images/furniture/storage/FLEX(1)_02.jpg",
+      "/images/furniture/storage/FLEX(1)_03.jpg"
+    ],
+    "tags": [
+      "系统家具",
+      "模块化",
+      "桌柜一体"
+    ],
+    "driveLink": "",
+    "titleEn": "FLEX System Furniture",
+    "descriptionEn": "Flexible office system with integrated desks and cabinets for multiple scenarios",
+    "tagsEn": [
+      "system furniture",
+      "modular",
+      "integrated"
+    ]
+  },
+  {
+    "id": "capri-t",
+    "title": "Capri-T 办公桌",
+    "year": 2025,
+    "category": "办公桌",
+    "role": "产品设计",
+    "featured": true,
+    "description": "极简利落的经理桌型，线条感与实用性的平衡",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/Capri-T_01.jpg"
+    ],
+    "tags": [
+      "办公桌",
+      "经理桌"
+    ],
+    "driveLink": "",
+    "titleEn": "Capri-T Executive Desk",
+    "descriptionEn": "Minimalist executive desk balancing clean lines with practicality",
+    "tagsEn": [
+      "office desk",
+      "executive desk"
+    ]
+  },
+  {
+    "id": "span",
+    "title": "SPAN 桌面系统",
+    "year": 2025,
+    "category": "办公桌",
+    "role": "产品设计",
+    "featured": true,
+    "description": "大跨度桌面系统，为团队协作提供充裕空间",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/SPAN_02.png",
+      "/images/furniture/desk/SPAN_03.png"
+    ],
+    "tags": [
+      "办公桌",
+      "协作",
+      "大桌面"
+    ],
+    "driveLink": "",
+    "titleEn": "SPAN Desk System",
+    "descriptionEn": "Large-span desk system providing ample space for team collaboration",
+    "tagsEn": [
+      "office desk",
+      "collaboration",
+      "large surface"
+    ]
+  },
+  {
+    "id": "grandeur",
+    "title": "GRANDEUR 接待沙发",
+    "year": 2025,
+    "category": "沙发",
+    "role": "产品设计",
+    "featured": true,
+    "description": "大气稳重的接待沙发，重塑商务空间的舒适尺度",
+    "details": "",
+    "images": [
+      "/images/furniture/sofa/GRANDEUR_01.jpg",
+      "/images/furniture/sofa/GRANDEUR_02.jpg"
+    ],
+    "tags": [
+      "沙发",
+      "接待区",
+      "商务空间"
+    ],
+    "driveLink": "",
+    "titleEn": "GRANDEUR Reception Sofa",
+    "descriptionEn": "Elegant reception sofa redefining comfort in business spaces",
+    "tagsEn": [
+      "sofa",
+      "reception",
+      "business space"
+    ]
+  },
+  {
+    "id": "tranquo",
+    "title": "Tranquo 休闲座椅",
+    "year": 2025,
+    "category": "沙发",
+    "role": "产品设计",
+    "featured": true,
+    "description": "静谧柔和的休闲座椅，为空间注入安静力量",
+    "details": "",
+    "images": [
+      "/images/furniture/sofa/Tranquo_01.jpg",
+      "/images/furniture/sofa/Tranquo_02.jpg"
+    ],
+    "tags": [
+      "沙发",
+      "休闲",
+      "安静空间"
+    ],
+    "driveLink": "",
+    "titleEn": "Tranquo Lounge Seating",
+    "descriptionEn": "Serene and soft lounge seating bringing quiet strength to any space",
+    "tagsEn": [
+      "sofa",
+      "lounge",
+      "quiet space"
+    ]
+  },
+  {
+    "id": "libby",
+    "title": "Libby 储物柜",
+    "year": 2025,
+    "category": "储物柜",
+    "role": "产品设计",
+    "featured": true,
+    "description": "精巧的模块化储物方案，让办公空间井然有序",
+    "details": "",
+    "images": [
+      "/images/furniture/storage/Libby_01.jpg",
+      "/images/furniture/storage/liiby.webp"
+    ],
+    "tags": [
+      "储物",
+      "模块化",
+      "收纳"
+    ],
+    "driveLink": "",
+    "titleEn": "Libby Storage Cabinet",
+    "descriptionEn": "Compact modular storage solution keeping offices organized",
+    "tagsEn": [
+      "storage",
+      "modular",
+      "organization"
+    ]
+  },
+  {
+    "id": "zoom-booth",
+    "title": "Zoom 静音仓",
+    "year": 2026,
+    "category": "静音舱",
+    "role": "产品设计",
+    "featured": true,
+    "description": "独立隔音工作舱，为专注与远程协作打造的私密空间",
+    "details": "",
+    "images": [
+      "/images/furniture/phone-proof/zoom-1.png",
+      "/images/furniture/phone-proof/zoom-2.png",
+      "/images/furniture/phone-proof/zoom-3.png"
+    ],
+    "tags": [
+      "静音舱",
+      "隔音",
+      "远程办公"
+    ],
+    "driveLink": "",
+    "titleEn": "Zoom Acoustic Booth",
+    "descriptionEn": "Independent soundproof booth for focused work and remote meetings",
+    "tagsEn": [
+      "phone booth",
+      "soundproof",
+      "remote work"
+    ]
+  },
+  {
+    "id": "ct03",
+    "title": "CT03 办公桌",
+    "year": 2025,
+    "category": "办公桌",
+    "role": "产品设计",
+    "featured": false,
+    "description": "Capri系列的延伸款，兼顾实用与美学的紧凑型桌款",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/CT03.6.jpg"
+    ],
+    "tags": [
+      "办公桌"
+    ],
+    "driveLink": "",
+    "titleEn": "CT03 Office Desk",
+    "descriptionEn": "Compact desk extending the Capri series with practicality",
+    "tagsEn": [
+      "office desk"
+    ]
+  },
+  {
+    "id": "new-barcelona",
+    "title": "NEW BARCELONA 会议桌",
+    "year": 2025,
+    "category": "会议桌",
+    "role": "产品设计",
+    "featured": false,
+    "description": "现代会议桌解决方案，营造高效的会议氛围",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/NEW_BARCELONA-会议_01.jpg"
+    ],
+    "tags": [
+      "会议桌",
+      "会议空间"
+    ],
+    "driveLink": "",
+    "titleEn": "NEW BARCELONA Conference Table",
+    "descriptionEn": "Modern conference table solution for productive meetings",
+    "tagsEn": [
+      "conference table",
+      "meeting space"
+    ]
+  },
+  {
+    "id": "opus",
+    "title": "OPUS 管理桌",
+    "year": 2025,
+    "category": "办公桌",
+    "role": "产品设计",
+    "featured": false,
+    "description": "管理位专属系统，功能分区清晰，彰显专业格调",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/OPUS-管理_01.jpg"
+    ],
+    "tags": [
+      "办公桌",
+      "管理位"
+    ],
+    "driveLink": "",
+    "titleEn": "OPUS Manager Desk",
+    "descriptionEn": "Executive desk system with clear functional zones",
+    "tagsEn": [
+      "office desk",
+      "manager station"
+    ]
+  },
+  {
+    "id": "m-bench",
+    "title": "M Bench 长桌系统",
+    "year": 2025,
+    "category": "办公桌",
+    "role": "产品设计",
+    "featured": false,
+    "description": "线性的长桌系统，适配开放办公区的工位布局",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/M_bench_single1.jpg"
+    ],
+    "tags": [
+      "办公桌",
+      "长桌",
+      "开放办公"
+    ],
+    "driveLink": "",
+    "titleEn": "M Bench Linear System",
+    "descriptionEn": "Linear bench system for open-plan office layouts",
+    "tagsEn": [
+      "office desk",
+      "bench",
+      "open office"
+    ]
+  },
+  {
+    "id": "se-series",
+    "title": "SE 系列桌柜",
+    "year": 2025,
+    "category": "系统家具",
+    "role": "产品设计",
+    "featured": false,
+    "description": "简约实用的经典桌款，配套柜体灵活组合",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/SE_01.jpg",
+      "/images/furniture/storage/SE-柜_01.jpg"
+    ],
+    "tags": [
+      "办公桌",
+      "柜体",
+      "组合"
+    ],
+    "driveLink": "",
+    "titleEn": "SE Series Desk & Cabinet",
+    "descriptionEn": "Classic desk with matching cabinets for flexible combinations",
+    "tagsEn": [
+      "office desk",
+      "cabinet",
+      "combination"
+    ]
+  },
+  {
+    "id": "dual",
+    "title": "DUAL 双人工位",
+    "year": 2025,
+    "category": "办公桌",
+    "role": "产品设计",
+    "featured": false,
+    "description": "双人协作工位，紧凑空间中高效协作的解决方案",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/DUAL_01.png"
+    ],
+    "tags": [
+      "办公桌",
+      "双人",
+      "协作"
+    ],
+    "driveLink": "",
+    "titleEn": "DUAL Dual Workstation",
+    "descriptionEn": "Dual collaborative workstation for compact spaces",
+    "tagsEn": [
+      "office desk",
+      "dual",
+      "collaboration"
+    ]
+  },
+  {
+    "id": "e-zee",
+    "title": "E-ZEE 辅助桌",
+    "year": 2025,
+    "category": "办公桌",
+    "role": "产品设计",
+    "featured": false,
+    "description": "轻松便捷的辅助桌款，灵活补充办公空间的功能需求",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/E-ZEE_01.png"
+    ],
+    "tags": [
+      "办公桌",
+      "辅助"
+    ],
+    "driveLink": "",
+    "titleEn": "E-ZEE Auxiliary Table",
+    "descriptionEn": "Flexible auxiliary table for supplementary workspace needs",
+    "tagsEn": [
+      "office desk",
+      "auxiliary"
+    ]
+  },
+  {
+    "id": "troi",
+    "title": "Troi 多功能桌",
+    "year": 2025,
+    "category": "办公桌",
+    "role": "产品设计",
+    "featured": false,
+    "description": "融合美学与实用性的多功能桌型",
+    "details": "",
+    "images": [
+      "/images/furniture/desk/troi_01.jpg",
+      "/images/furniture/desk/troi_02.jpg"
+    ],
+    "tags": [
+      "办公桌",
+      "多功能"
+    ],
+    "driveLink": "",
+    "titleEn": "Troi Multi-Function Desk",
+    "descriptionEn": "Multi-functional desk blending aesthetics with practicality",
+    "tagsEn": [
+      "office desk",
+      "multi-function"
+    ]
+  },
+  {
+    "id": "q-buk",
+    "title": "Q-Buk 休闲沙发",
+    "year": 2025,
+    "category": "沙发",
+    "role": "产品设计",
+    "featured": false,
+    "description": "舒适休闲沙发，为公共区域增添温暖气息",
+    "details": "",
+    "images": [
+      "/images/furniture/sofa/Q-Buk_01.jpg",
+      "/images/furniture/sofa/Q-Buk_02.jpg",
+      "/images/furniture/sofa/Q-Buk_03.jpg"
+    ],
+    "tags": [
+      "沙发",
+      "休闲"
+    ],
+    "driveLink": "",
+    "titleEn": "Q-Buk Lounge Sofa",
+    "descriptionEn": "Comfortable lounge sofa adding warmth to public areas",
+    "tagsEn": [
+      "sofa",
+      "lounge"
+    ]
+  },
+  {
+    "id": "model4",
+    "title": "Model4 四人沙发",
+    "year": 2025,
+    "category": "沙发",
+    "role": "产品设计",
+    "featured": false,
+    "description": "经典四人座沙发，适合等候区与公共空间",
+    "details": "",
+    "images": [
+      "/images/furniture/sofa/Model4_01.jpg",
+      "/images/furniture/sofa/Model4_02.jpg",
+      "/images/furniture/sofa/Model4_03.jpg"
+    ],
+    "tags": [
+      "沙发",
+      "等候区"
+    ],
+    "driveLink": "",
+    "titleEn": "Model4 Four-Seat Sofa",
+    "descriptionEn": "Classic four-seat sofa suitable for waiting areas",
+    "tagsEn": [
+      "sofa",
+      "waiting area"
+    ]
+  },
+  {
+    "id": "truffle",
+    "title": "TRUFFLE 质感沙发",
+    "year": 2025,
+    "category": "沙发",
+    "role": "产品设计",
+    "featured": false,
+    "description": "质感松露色系沙发，低调中体现高级感",
+    "details": "",
+    "images": [
+      "/images/furniture/sofa/TRUFFLE_01.jpg",
+      "/images/furniture/sofa/TRUFFLE_03.jpg"
+    ],
+    "tags": [
+      "沙发",
+      "质感",
+      "商务"
+    ],
+    "driveLink": "",
+    "titleEn": "TRUFFLE Premium Sofa",
+    "descriptionEn": "Sophisticated truffle-colored sofa with understated elegance",
+    "tagsEn": [
+      "sofa",
+      "texture",
+      "商务"
+    ]
+  },
+  {
+    "id": "cb01",
+    "title": "CB01 储物柜",
+    "year": 2025,
+    "category": "储物柜",
+    "role": "产品设计",
+    "featured": false,
+    "description": "紧凑型储物柜，小而美的收纳方案",
+    "details": "",
+    "images": [
+      "/images/furniture/storage/CB01.11.jpg"
+    ],
+    "tags": [
+      "储物柜",
+      "紧凑"
+    ],
+    "driveLink": "",
+    "titleEn": "CB01 Compact Cabinet",
+    "descriptionEn": "Compact storage cabinet offering smart space-saving solutions",
+    "tagsEn": [
+      "cabinet",
+      "compact"
+    ]
+  }
+]

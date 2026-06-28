@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://friendbehance-bot.github.io/samlee-design/sitemap.xml
