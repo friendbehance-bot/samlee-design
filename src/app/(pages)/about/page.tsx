@@ -1,10 +1,11 @@
-"use client";
+﻿"use client";
 import { useLang } from "@/lib/i18n";
 import { assetPath } from "@/lib/asset";
+import data from "@/../content/i18n.json";
 
 export default function About() {
   const { t, lang } = useLang();
-  const tl = (t("aboutTimeline") as any) || [];
+  const tl = ((data as any)[lang]?.aboutTimeline) || [];
   return (
     <section className="pt-32 pb-24">
       <div className="max-w-4xl mx-auto px-6">

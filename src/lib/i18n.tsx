@@ -1,82 +1,11 @@
-"use client";
+﻿"use client";
 import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
-
-const data: Record<string, any> = {
-  zh: {
-    nav: { home:"首页", about:"关于", furniture:"家具设计", projects:"项目管理", photography:"摄影", travel:"旅行", contact:"联系" },
-    hero: { badge:"30年 · 办公家具设计 · 项目管理", intro:"办公家具设计 / 项目管理", subtitle:"三十年行业沉淀 · 台湾优美家具 · Itoki · Bone · Finest" },
-    btn: { works:"设计作品", cases:"项目案例", photo:"摄影 →", contact:"联系 Sam", pexels:"Pexels ↗", browse:"浏览摄影作品", learnMore:"了解更多 →", allWorks:"全部作品 →", allCases:"全部案例 →" },
-    section: { featured:"精选作品", about:"从事家具行业三十年", projects:"项目案例", photography:"摄影作品", cta:"有项目合作？", ctaDesc:"办公家具设计 · 项目管理 · 产品开发" },
-    roles: { design:"办公家具设计", mgmt:"项目管理", photo:"摄影", travel:"旅行" },
-    desc: { design:"三十年沉淀，从一张桌面到系统家具", mgmt:"从概念到交付，全程品控", photo:"用镜头捕捉空间的灵魂", travelNote:"在路上，寻找设计的灵感" },
-    about: {
-      p1:"从民用家具到办公家具，最终聚焦于办公板类产品的设计与项目管理。",
-      p2:"曾任职于台湾优美家具（UB）、上海优美家具（UIB）、伊藤喜（Itoki）设计总监，现任 Bone 家具、Finest 家具产品设计顾问。",
-      p3:"我相信好的办公家具不仅是功能的载体，更是空间美学的延伸。从一张桌面的倒角处理到一套声学隔断的模块化结构，每个细节都应该是经过深思熟虑的。"
-    },
-    aboutTitle: "关于我", careerTitle: "职业经历",
-    aboutTimeline: [
-      { year:"至今", title:"产品设计顾问", company:"Bone / Finest", desc:"办公板类产品的设计与项目管理" },
-      { year:"2020-2024", title:"设计总监", company:"伊藤喜（Itoki）", desc:"主导办公家具产品线与设计方向" },
-      { year:"2015-2020", title:"设计总监", company:"上海优美家具（UIB）", desc:"负责办公家具产品设计与项目管理" },
-      { year:"2010-2015", title:"设计师", company:"台湾优美家具（UB）", desc:"从民用家具到办公家具的转型与深耕" }
-    ],
-    contactPage: {
-      title:"联系我", detail_p:"无论是办公空间设计、产品开发，还是项目管理咨询，欢迎随时联系。",
-      email:"邮箱", wechat:"微信", pexels:"Pexels",
-      reply:"通常在24小时内回复", wechat_note:"添加好友请备注来意", follow_photo:"关注我的摄影作品",
-      chat_cta:"开始对话", chat_desc:"欢迎随时联系，一起探讨办公空间的可能性。", send_email:"发送邮件"
-    },
-    photoTitle: "摄影作品", photoDesc: "用镜头捕捉空间的灵魂——建筑、街拍、旅行。",
-    travelTitle: "旅行笔记", travelDesc: "在路上，寻找设计的灵感。用文字和照片记录旅途中的所见所感。",
-    furnitureTitle: "办公家具设计", furnitureDesc: "每一件产品都是对办公空间的重新思考，外观美学与功能的完美结合。",
-    projectsTitle: "项目管理", projectsDesc: "从概念到交付，全程品控。",
-    furnitureCats: { "全部":"全部", "声学隔断":"声学隔断", "系统家具":"系统家具", "办公桌":"办公桌", "会议桌":"会议桌", "沙发":"沙发", "储物柜":"储物柜", "静音舱":"静音舱" },
-    detailLabels: { back:"← 返回作品列表", info:"项目说明", specs:"规格参数", sampling:"打样过程", samplingDesc:"从设计到打样的关键节点记录", download:"下载完整项目资料", downloadDesc:"包含原始设计文件、渲染图和CAD图纸", downloadBtn:"下载项目资料包", role:"角色" },
-    caseLabels: { client:"客户", scope:"规模", duration:"周期", role:"角色", results:"成果" },
-    photoCats: { "全部":"全部", "architecture":"建筑", "street":"街拍", "travel":"旅行" },
-    photoBottom: "更多作品请关注 Pexels", pexelsLink: "Pexels 主页 ↗",
-    videoHint: "点击播放视频", scroll: "Scroll", footer: "Sam Lee. All rights reserved."
-  },
-  en: {
-    nav: { home:"Home", about:"About", furniture:"Furniture", projects:"Projects", photography:"Photography", travel:"Travel", contact:"Contact" },
-    hero: { badge:"30 Years · Furniture Design · Project Management", intro:"Furniture Design / Project Management", subtitle:"UB · UIB · Itoki · Bone · Finest" },
-    btn: { works:"Design Works", cases:"Case Studies", photo:"Photography →", contact:"Contact Sam", pexels:"Pexels ↗", browse:"Browse Gallery", learnMore:"Learn More →", allWorks:"All Works →", allCases:"All Cases →" },
-    section: { featured:"Featured Works", about:"30 Years in Furniture", projects:"Case Studies", photography:"Photography", cta:"Have a project?", ctaDesc:"Furniture Design · Project Management · Product Development" },
-    roles: { design:"Furniture Design", mgmt:"Project Mgmt", photo:"Photography", travel:"Travel" },
-    desc: { design:"30 years of craft, from a single desk to system furniture", mgmt:"From concept to delivery, full quality control", photo:"Capturing the soul of space through the lens", travelNote:"On the road, finding design inspiration" },
-    about: {
-      p1:"From residential to office furniture, I have dedicated 30 years to the design and project management of panel-based office furniture products.",
-      p2:"Former Design Director at United Beds (UB/Taiwan), United Beds (UIB/Shanghai), and Itoki. Currently serving as Product Design Consultant for Bone Furniture and Finest Furniture.",
-      p3:"I believe great office furniture is not just a functional carrier but an extension of spatial aesthetics—from the edge detail of a desktop to the modular structure of an acoustic partition."
-    },
-    aboutTitle: "About Me", careerTitle: "Career Timeline",
-    aboutTimeline: [
-      { year:"Present", title:"Product Design Consultant", company:"Bone / Finest", desc:"Design and project management of office panel products" },
-      { year:"2020-2024", title:"Design Director", company:"Itoki", desc:"Led office furniture product line and design direction" },
-      { year:"2015-2020", title:"Design Director", company:"UIB Shanghai", desc:"Office furniture product design and project management" },
-      { year:"2010-2015", title:"Designer", company:"UB Taiwan", desc:"Transition from residential to office furniture" }
-    ],
-    contactPage: {
-      title:"Contact Me", detail_p:"Whether it's workspace design, product development, or project management consulting, feel free to reach out.",
-      email:"Email", wechat:"WeChat", pexels:"Pexels",
-      reply:"Usually reply within 24 hours", wechat_note:"Please mention your purpose when adding as friend", follow_photo:"Follow my photography",
-      chat_cta:"Start a Conversation", chat_desc:"Feel free to reach out anytime to discuss new workspace possibilities.", send_email:"Send Email"
-    },
-    photoTitle: "Photography", photoDesc: "Capturing the soul of space through the lens—architecture, street, travel.",
-    travelTitle: "Travel Notes", travelDesc: "On the road, finding design inspiration. Words and photos recording what I see and feel on my journeys.",
-    furnitureTitle: "Furniture Design", furnitureDesc: "Every product is a rethinking of the workspace—where aesthetic form meets functional excellence.",
-    projectsTitle: "Project Management", projectsDesc: "From concept to delivery, full quality control.",
-    furnitureCats: { "全部":"All", "声学隔断":"Acoustic Partition", "系统家具":"System Furniture", "办公桌":"Desk", "会议桌":"Meeting Table", "沙发":"Sofa", "储物柜":"Storage", "静音舱":"Phone Booth" },
-    detailLabels: { back:"← Back to Works", info:"Project Info", specs:"Specifications", sampling:"Sampling Process", samplingDesc:"Key milestones from design to sample production", download:"Download Full Project Files", downloadDesc:"Includes original design files, renderings and CAD drawings", downloadBtn:"Download Project Package", role:"Role" },
-    caseLabels: { client:"Client", scope:"Scope", duration:"Duration", role:"Role", results:"Results" },
-    photoCats: { "全部":"All", "architecture":"Architecture", "street":"Street", "travel":"Travel" },
-    photoBottom: "More on Pexels", pexelsLink: "Pexels Home ↗",
-    videoHint: "Click to play video", scroll: "Scroll", footer: "Sam Lee. All rights reserved."
-  }
-};
+import data from "@/../content/i18n.json";
 
 type Lang = "zh" | "en";
+type I18nData = Record<string, Record<string, any>>;
+const i18nData = data as unknown as I18nData;
+
 const Ctx = createContext<{lang:Lang; t:(k:string)=>string; toggle:()=>void}>({ lang:"zh", t:()=>"", toggle:()=>{} });
 
 export function LangProvider({children}:{children:React.ReactNode}) {
@@ -85,7 +14,15 @@ export function LangProvider({children}:{children:React.ReactNode}) {
   const toggle = useCallback(() => {
     setLang(prev => { const next = prev==="zh"?"en":"zh"; localStorage.setItem("lang", next); return next; });
   }, []);
-  const t = useCallback((k:string)=>{ const keys = k.split("."); let o:any=data[lang]; for(const kk of keys) if(o) o=o[kk]; return o??k; }, [lang]);
+  const t = useCallback((k:string)=>{
+    const keys = k.split(".");
+    let o:any = i18nData[lang];
+    for (const kk of keys) {
+      if (o === undefined || o === null) return k;
+      o = o[kk];
+    }
+    return (o !== undefined && o !== null) ? String(o) : k;
+  }, [lang]);
   return React.createElement(Ctx.Provider, {value:{lang,t,toggle}}, children);
 }
 

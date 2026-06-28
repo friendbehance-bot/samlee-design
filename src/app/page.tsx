@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
@@ -9,7 +9,7 @@ import cases from "@/../content/cases.json";
 const roles = [
   { k:"design", i:"✏", c:"text-[#2563eb]", h:"/furniture" },
   { k:"mgmt", i:"◆", c:"text-[#059669]", h:"/projects" },
-  { k:"photo", i:"○", c:"text-[#d97706]", h:"/photography" },
+  { k:"photo", i:"◌", c:"text-[#d97706]", h:"/photography" },
   { k:"travel", i:"△", c:"text-[#dc2626]", h:"/travel" },
 ];
 
@@ -32,10 +32,6 @@ export default function Home() {
     const tmr = setInterval(()=>{ if(i<full.length){ setTyped(full.slice(0,i+1)); i++; } else { clearInterval(tmr); setCursor(false); } },50);
     return ()=>clearInterval(tmr);
   }, [full]);
-
-  const R = ({children,className}:any)=>(
-    <div className={"reveal "+(className||"")}>{children}</div>
-  );
 
   return (
     <>
@@ -71,7 +67,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 reveal">{featured.map((p:any)=>
             <Link key={p.id} href={"/furniture/"+p.id} className="group rounded-xl overflow-hidden bg-[#f5f5f0] dark:bg-[#1a1a1a] border border-[#e5e5e0] dark:border-[#2a2a2a] hover:-translate-y-1 transition-all">
               {p.images?.[0]&&<div className="aspect-[4/3] overflow-hidden"><img decoding="async" src={assetPath(p.images[0])} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/></div>}
-              <div className="p-4"><div className="text-[10px] uppercase tracking-wider text-[#6b7280] dark:text-[#9ca3af] mb-1">{p.category}</div><h3 className="font-semibold text-sm mb-0.5">{p.title}</h3><p className="text-xs text-[#6b7280] dark:text-[#9ca3af]">{p.description}</p></div>
+              <div className="p-4"><div className="text-[10px] uppercase tracking-wider text-[#6b7280] dark:text-[#9ca3af] mb-1">{p.category}</div><h3 className="font-semibold text-sm mb-0.5">{p.title}</h3><p className="text-xs text-[#6b7280] dark:text-[#9ca3af] line-clamp-2">{p.description}</p></div>
             </Link>
           )}</div>
         </div>
