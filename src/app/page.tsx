@@ -98,25 +98,37 @@ export default function Home() {
 
       {/* ===== ABOUT ===== */}
       <section className="py-32 px-6 border-t border-[#1A1A1A]/8" style={{background:"#F6F3EC"}}>
-        <div className="max-w-2xl mx-auto reveal revealed">
-          <h2 className="mono text-xs tracking-[0.3em] uppercase text-[#666666] mb-8">
-            {lang==="en" ? "ABOUT SAM" : "关于 Sam"}
-          </h2>
-          <p className="text-lg sm:text-xl text-[#1A1A1A] leading-relaxed mb-6">
-            {t("about.p1")}
-          </p>
-          <p className="text-base text-[#666] leading-relaxed mb-3">
-            {t("about.p2")}
-          </p>
-          <p className="text-base text-[#666] leading-relaxed mb-8">
-            {t("about.p3")}
-          </p>
-          <Link href="/about" className="mono text-sm text-[#1A1A1A] hover:text-[#666] transition-colors inline-flex items-center gap-1">
-            {lang==="en" ? "read more" : "了解更多"} <span>&rarr;</span>
-          </Link>
+        <div className="max-w-5xl mx-auto reveal revealed grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+          {/* 左侧: 照片 */}
+          <div className="relative w-full">
+            <div className="aspect-[3/4] overflow-hidden">
+              <img
+                src={assetPath("/images/profile/sam-portrait.jpg")}
+                alt="Sam Lee"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          {/* 右侧: 文字 */}
+          <div>
+            <h2 className="mono text-xs tracking-[0.3em] uppercase text-[#666666] mb-8">
+              {lang==="en" ? "ABOUT SAM" : "关于 Sam"}
+            </h2>
+            <p className="text-lg sm:text-xl text-[#1A1A1A] leading-relaxed mb-6">
+              {t("about.p1")}
+            </p>
+            <p className="text-base text-[#666] leading-relaxed mb-3">
+              {t("about.p2")}
+            </p>
+            <p className="text-base text-[#666] leading-relaxed mb-8">
+              {t("about.p3")}
+            </p>
+            <Link href="/about" className="mono text-sm text-[#1A1A1A] hover:text-[#666] transition-colors inline-flex items-center gap-1">
+              {lang==="en" ? "read more" : "了解更多"} <span>&rarr;</span>
+            </Link>
+          </div>
         </div>
       </section>
-
       {/* ===== CONTACT CTA ===== */}
       <section className="py-24 px-6 border-t border-[#1A1A1A]/8" style={{background:"#F6F3EC"}}>
         <div className="max-w-xl mx-auto text-center reveal revealed">
