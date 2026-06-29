@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import { useLang } from "@/lib/i18n";
 import { assetPath } from "@/lib/asset";
@@ -18,7 +18,8 @@ export default function Contact() {
             <video
               src={assetPath("/videos/sam-animation.mp4")}
               className="w-full aspect-video object-cover"
-              autoPlay muted loop playsInline controls preload="auto"
+              autoPlay muted playsInline controls preload="metadata"
+              onEnded={(e)=>{const t=e.target as HTMLVideoElement; t.style.opacity="1"}}
             />
           </div>
         </div>
@@ -34,7 +35,7 @@ export default function Contact() {
             {h:cp.email,v:"friendbehance@gmail.com",n:cp.reply,link:"mailto:friendbehance@gmail.com"},
             {h:cp.wechat,v:"frendsamlee",n:cp.wechat_note,link:null},
             {h:cp.pexels,v:"pexels.com/@sam-lee",n:cp.follow_photo,link:"https://www.pexels.com/@sam-lee-2162121365/"},
-            {h:cp.pins,v:"pinterest.com/@friends在014",n:cp.follow_photo,link:"https://pinterest.com/@friends在014"},
+            {h:cp.pins,v:"pinterest.com/friendsz9014",n:cp.follow_photo,link:"https://pinterest.com/friendsz9014"},
           ].map((item,i)=>(
             <div key={i} className={"p-6 rounded-2xl border border-[#1A1A1A]/8 transition-all duration-500 "+(mounted?"opacity-100 translate-y-0":"opacity-0 translate-y-4")} style={{transitionDelay:i*100+"ms"}}>
               <h3 className="font-bold mb-3">{item.h}</h3>
