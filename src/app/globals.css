@@ -24,3 +24,16 @@
 ::-webkit-scrollbar { width:6px; }
 ::-webkit-scrollbar-track { background:#F6F3EC; }
 ::-webkit-scrollbar-thumb { background:#ccc; border-radius:3px; }
+
+
+/* Hide video progress bar */
+.video-hide-bar::-webkit-media-controls-timeline,
+.video-hide-bar::-webkit-media-controls-current-time-display,
+.video-hide-bar::-webkit-media-controls-time-remaining-display,
+.video-hide-bar::-webkit-media-controls-seek-back-button,
+.video-hide-bar::-webkit-media-controls-seek-forward-button {
+  display: none !important;
+}
+.video-hide-bar::-webkit-media-controls-panel {
+  justify-content: center !important;
+}

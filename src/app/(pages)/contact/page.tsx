@@ -17,8 +17,8 @@ export default function Contact() {
           <div className="rounded-2xl overflow-hidden border border-[#1A1A1A]/8" style={{background:"#EEEAE0"}}>
             <video
               src={assetPath("/videos/sam-animation.mp4")}
-              className="w-full aspect-video object-cover"
-              autoPlay muted playsInline controls preload="metadata"
+              className="w-full aspect-video object-cover video-hide-bar"
+              autoPlay muted playsInline controls preload="metadata" controlsList="nodownload noremoteplayback"
               onEnded={(e)=>{const t=e.target as HTMLVideoElement; t.style.opacity="1"}}
             />
           </div>
