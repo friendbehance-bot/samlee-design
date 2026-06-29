@@ -14,7 +14,11 @@ export default function Footer() {
           <Link href="/travel" className="hover:text-[#1A1A1A] transition-colors">{t("nav.travel")}</Link>
           <Link href="/contact" className="hover:text-[#1A1A1A] transition-colors">{t("nav.contact")}</Link>
         </div>
-        <p className="text-xs text-[#999]">© 2026 Sam Lee</p>
+        <div className="flex gap-4 text-xs text-[#666]">
+            <a href="https://www.pexels.com/@sam-lee-2162121365/" target="_blank" rel="noopener" className="hover:text-[#1A1A1A] transition-colors">Pexels</a>
+            <a href="https://www.pinterest.com/friends%E5%9C%A8014/" target="_blank" rel="noopener" className="hover:text-[#1A1A1A] transition-colors">Pins</a>
+          </div>
+          <p className="text-xs text-[#999]">© 2026 Sam Lee</p>
       </div>
     </footer>
   );
