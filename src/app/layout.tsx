@@ -51,7 +51,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             url: baseUrl,
             sameAs: [
               "https://www.pexels.com/@sam-lee-2162121365/",
-              "https://www.pinterest.com/friendsz9014/"
+              "https://www.pinterest.com/friendsz9014/",
+              "https://www.linkedin.com/in/sam-lee-583aa041a/"
             ]
           })
         }} />

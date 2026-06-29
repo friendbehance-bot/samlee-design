@@ -90,7 +90,8 @@
       "chat_cta": "开始对话",
       "chat_desc": "欢迎随时联系，一起探讨办公空间的可能性。",
       "send_email": "发送邮件",
-      "pins": "Pins"
+      "pins": "Pins",
+      "linkedin": "LinkedIn"
     },
     "photoTitle": "摄影作品",
     "photoDesc": "用镜头捕捉空间的灵魂——建筑、街拍、旅行。",
@@ -231,7 +232,8 @@
       "chat_cta": "Start a Conversation",
       "chat_desc": "Feel free to reach out anytime to discuss new workspace possibilities.",
       "send_email": "Send Email",
-      "pins": "Pins"
+      "pins": "Pins",
+      "linkedin": "LinkedIn"
     },
     "photoTitle": "Photography",
     "photoDesc": "Capturing the soul of space through the lens — architecture, street, travel.",

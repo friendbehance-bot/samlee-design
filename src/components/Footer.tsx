@@ -17,6 +17,7 @@ export default function Footer() {
         <div className="flex gap-4 text-xs text-[#666]">
             <a href="https://www.pexels.com/@sam-lee-2162121365/" target="_blank" rel="noopener" className="hover:text-[#1A1A1A] transition-colors">Pexels</a>
             <a href="https://www.pinterest.com/friendsz9014/" target="_blank" rel="noopener" className="hover:text-[#1A1A1A] transition-colors">Pins</a>
+            <a href="https://www.linkedin.com/in/sam-lee-583aa041a/" target="_blank" rel="noopener" className="hover:text-[#1A1A1A] transition-colors">LinkedIn</a>
           </div>
           <p className="text-xs text-[#999]">© 2026 Sam Lee</p>
       </div>
