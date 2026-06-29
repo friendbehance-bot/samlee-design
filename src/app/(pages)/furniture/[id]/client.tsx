@@ -22,6 +22,25 @@ export function FurnitureDetailClient() {
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">{project.title}</h1>
         {project.images.length>0&&<div className="grid gap-4 mb-12">{project.images.map((img:string,i:number)=><div key={i} className="rounded-2xl overflow-hidden "><img decoding="async" src={assetPath(img)} alt={project.title+" - "+(i+1)} className="w-full object-cover" loading="lazy"/></div>)}</div>}
         <div className="max-w-none"><h2 className="text-xl font-bold mb-4">{dl.info}</h2><p className="text-[#666] leading-relaxed">{project.description}</p>
+        
+        {/* ===== PROCESS IMAGES ===== */}
+        {project.processImages && project.processImages.length > 0 && (
+          <div className="mt-12 mb-8">
+            <h2 className="text-xl font-bold mb-6">{lang==="en" ? "Sketch & Prototype" : "手稿与打样"}</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {project.processImages.map((img, i) => (
+                <div key={i} className="rounded-2xl overflow-hidden border border-[#1A1A1A]/8">
+                  <img
+                    src={assetPath(img)}
+                    alt={lang==="en" ? (i === 0 ? "Design sketch" : "Prototype photo") : (i === 0 ? "设计手稿" : "打样照片")}
+                    className="w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         {/* ===== DESIGN STORY ===== */}
         {project.story && (
           <div className="mt-16">
