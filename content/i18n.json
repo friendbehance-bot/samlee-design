@@ -47,7 +47,7 @@
     },
     "about": {
       "p1": "从民用家具到办公家具，最终聚焦于办公板类产品的设计与项目管理。",
-      "p2": "曾任职于台湾优美家具（UB）、上海优美家具（UIB）、伊藤喜（Itoki）设计总监，现任 Bone 家具、Finest 家具产品设计顾问。",
+      "p2": "曾任职于优美家具（UB昆山、UB深圳）、伊藤喜（Itoki）设计总监，现任 Bone 家具、Finest 家具产品设计顾问。",
       "p3": "我相信好的办公家具不仅是功能的载体，更是空间美学的延伸。从一张桌面的倒角处理到一套声学隔断的模块化结构，每个细节都应该是经过深思熟虑的。"
     },
     "aboutTitle": "关于我",
@@ -74,7 +74,7 @@
       {
         "year": "2010-2015",
         "title": "设计师",
-        "company": "台湾优美家具（UB）",
+        "company": "优美家具（UB昆山）",
         "desc": "从民用家具到办公家具的转型与深耕"
       }
     ],
@@ -187,7 +187,7 @@
     },
     "about": {
       "p1": "From residential to office furniture, I have dedicated 30 years to the design and project management of panel-based office furniture products.",
-      "p2": "Former Design Director at United Beds (UB/Taiwan), United Beds (UIB/Shanghai), and Itoki. Currently serving as Product Design Consultant for Bone Furniture and Finest Furniture.",
+      "p2": "Former Design Director at UB CHINA, KUNSHAN, UB SHENZHEN, and Itoki. Currently serving as Product Design Consultant for Bone Furniture and Finest Furniture.",
       "p3": "I believe great office furniture is not just a functional carrier but an extension of spatial aesthetics — from the edge detail of a desktop to the modular structure of an acoustic partition."
     },
     "aboutTitle": "About Me",
@@ -214,7 +214,7 @@
       {
         "year": "2010-2015",
         "title": "Designer",
-        "company": "UB Taiwan",
+        "company": "UB Kunshan",
         "desc": "Transition from residential to office furniture"
       }
     ],
