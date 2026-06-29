@@ -25,7 +25,9 @@
       "acoustic",
       "partition",
       "modular"
-    ]
+    ],
+    "story": "**需求调研**\n2025年初，市场部反馈：越来越多的客户在开放式办公环境中需要灵活的空间划分方案。传统隔断墙施工周期长、无法调整，不能满足快速变化的企业需求。我走访了3个施工现场和5家终端用户，发现核心痛点在于：隔断需要同时满足“隔音”和“通透感”这对矛盾需求。\n\n**草图构思**\n回到工作室，我从模块化角度切入——把隔断拆解为“框架+填充模块”两个独立系统。框架负责结构支撑和走线，填充模块决定声学性能和视觉效果。画了十几版草图后，最终确定“C型立柱+可替换面板”的方案，既保证结构强度，又让面板更换像换相框一样简单。\n\n**打样过程**\n打样阶段最大的挑战是声学性能的把控。我和工厂一起做了4轮吸音材料测试，从玻璃纤维密度到穿孔板的开孔率，逐个参数优化。第一版样品隔音效果很好，但视觉上太厚重。第二版改用双层复合结构——一层密度板做基材，一层毛毡做饰面，在声学性能和美学之间找到了平衡。\n\n**最终成品**\nDynasty 声学隔断系统最终实现了 NRC 0.85 的吸音系数，同时保持了不到8cm的厚度。它可以在开放工位、经理办公室、会议室之间自由切换，客户反馈安装速度比传统隔断快了60%。",
+    "storyEn": "**Market Research**\nIn early 2025, the sales team reported a growing demand for flexible space division in open-plan offices. Traditional partition walls require long construction times and cannot be reconfigured. After visiting 3 construction sites and interviewing 5 end-users, the core insight was clear: partitions need to balance “sound isolation” with “visual openness” — two seemingly contradictory requirements.\n\n**Sketching**\nBack in the studio, I approached it from a modular perspective: decompose the partition into “frame + infill module” as two independent systems. The frame handles structure and cable management; the infill determines acoustic performance and visual effect. After a dozen sketch iterations, I settled on a “C-channel post + replaceable panel” system — strong enough structurally, while swapping panels is as easy as changing a picture frame.\n\n**Prototyping**\nThe biggest challenge was acoustic performance. We ran 4 rounds of sound absorption tests, optimizing everything from fiberglass density to perforation ratio. The first prototype had great sound isolation but looked too heavy. The second iteration used a dual-layer composite — MDF as the base layer, felt as the finish — striking the right balance between acoustics and aesthetics.\n\n**Final Product**\nThe Dynasty Acoustic Partition achieved an NRC rating of 0.85 while maintaining a profile under 8cm. It can transition seamlessly between open workstations, executive offices, and meeting rooms. Client feedback shows installation is 60% faster than traditional partitions."
   },
   {
     "id": "flex-system",
@@ -54,7 +56,9 @@
       "system furniture",
       "modular",
       "integrated"
-    ]
+    ],
+    "story": "**需求调研**\n中小企业在采购办公家具时通常面临一个选择困境：先买桌子还是先买柜子？两者风格不统一就破坏了空间美感。我与8家中小型企业沟通后发现，他们真正需要的是“桌柜一体”的系统方案——桌子、柜子、屏风在同一个设计语言下工作。\n\n**草图构思**\nFLEX 的设计起点是一个“连接件”。我在速写本上反复推敲如何让桌腿和柜体共享同一套型材系统。最终画出了“T型轨道”的概念：桌面和柜体都可以通过统一规格的铝型材轨道连接和调整，所有模块在一个网格系统里对齐。\n\n**打样过程**\n打样阶段最棘手的是精度控制。因为FLEX的模块需要严丝合缝地对接，任何0.5mm的公差都会在连接处显现。我和工厂师傅在车间调试了3天，调整了铝型材的挤出口模和柜体的铰链位置。柜门开关的阻尼也经过了5轮样品测试。\n\n**最终成品**\nFLEX System 最终实现了桌柜100%模块化对接。用户可以根据空间需求自由组合：单人位、双人位、L型转角、带柜工位等。最令我欣慰的是，有客户说“这套家具像乐高一样灵活”。",
+    "storyEn": "**Market Research**\nSmall and medium enterprises often face a dilemma when furnishing their offices: buy desks first or cabinets first? Mismatched designs disrupt the space. After talking to 8 SMEs, I realized they really need an integrated desk-and-cabinet system — where desks, cabinets, and screens work within the same design language.\n\n**Sketching**\nFLEX started with a “connector.” I sketched relentlessly, trying to figure out how desk legs and cabinet frames could share the same extrusion profile. The breakthrough was the “T-track” concept: both desktops and cabinets attach to a unified aluminum profile track, all modules aligned within a single grid system.\n\n**Prototyping**\nPrecision control was the toughest part. FLEX modules must fit together seamlessly — any 0.5mm tolerance shows at the joint. I spent 3 days on the factory floor tuning the aluminum extrusion die and hinge positions. Cabinet damper performance went through 5 sample iterations.\n\n**Final Product**\nFLEX System achieved 100% modular desk-to-cabinet connectivity. Users can freely configure single workstations, dual stations, L-shaped corners, and cabinet-integrated layouts. The best compliment came from a client who said, “This furniture is as flexible as Lego.”"
   },
   {
     "id": "capri-t",
@@ -78,7 +82,9 @@
     "tagsEn": [
       "office desk",
       "executive desk"
-    ]
+    ],
+    "story": "**需求调研**\n经理桌一直是办公家具品类中“设计感”要求最高的产品之一。我调研了国内外十几个品牌后，发现市面上大多数经理桌要么太“商务”（厚重的实木风），要么太“工业”（冷冰冰的金属感）。客户想要的是——既有管理者的稳重感，又能融入现代办公空间的极简调性。\n\n**草图构思**\nCapri-T 的设计语言是“减法”。我把传统经理桌的侧脚、挡板、走线槽全部简化，只保留最核心的结构线条。草图阶段最大的突破是桌腿的设计——用一根“C”形金属件取代了传统的四条腿，让桌面看起来像悬浮在空中。\n\n**打样过程**\nC形桌腿的焊接工艺是打样的难点。第一版样品焊接后应力变形导致桌腿不平，整个桌面晃动。我和结构工程师反复调整了焊接夹具和热处理工艺，第三版才达到了要求的平整度。表面处理选了哑光喷砂工艺，触感温润不反光。\n\n**最终成品**\nCapri-T 上市后被很多设计师称为“最干净的经理桌”。它的C形桌腿成为标志性设计语言，后续还衍生出了会议桌和主管桌系列。这款桌子告诉我：设计的力量不在于添加多少，而在于敢于删除多少。",
+    "storyEn": "**Market Research**\nExecutive desks are one of the most design-demanding categories in office furniture. After researching over a dozen brands, I noticed most executive desks fall into two extremes: overly “corporate” (heavy solid wood) or overly “industrial” (cold metal). Clients want something that conveys authority while fitting into a minimalist modern workspace.\n\n**Sketching**\nCapri-T’s design language is “subtraction.” I stripped away the traditional side panels, modesty panels, and cable troughs, keeping only the essential structural lines. The breakthrough was the leg design — a single “C”-shaped metal profile replaces four traditional legs, making the desktop appear to float.\n\n**Prototyping**\nWelding the C-shaped leg was the biggest challenge. The first prototype suffered from stress deformation, causing the desk to wobble. I worked with the structural engineer through 3 rounds of jig adjustments and heat treatment optimization. The final finish used a matte sandblasted surface — warm to the touch and glare-free.\n\n**Final Product**\nCapri-T has been called “the cleanest executive desk” by designers. Its signature C-leg became a design language that spawned meeting table and mid-manager desk variants. This project taught me that design power isn’t about what you add — it’s about what you dare to remove."
   },
   {
     "id": "span",
@@ -105,7 +111,9 @@
       "office desk",
       "collaboration",
       "large surface"
-    ]
+    ],
+    "story": "**需求调研**\n团队协作正在成为办公空间的主流需求。我观察到很多公司把4-6人的团队安排在一起，但找不到合适的桌子——要么太小容不下电脑和文件，要么太大浪费空间。走访6个科技公司后，整理出关键需求：台面深度600-800mm、宽度1400-1800mm、走线要隐蔽但要方便插拔。\n\n**草图构思**\nSPAN 的核心思路是“大桌面+隐藏走线”。我在草稿纸上画了几十种桌面边缘的剖面图，最终找到了一种独特的“悬挑式”边缘设计——桌面边缘向上微翘形成一个自然档边，同时内部预留走线槽。这样从侧面看桌面极薄（只有25mm），但实际强度足够支撑大跨度。\n\n**打样过程**\n大跨度的桌面最怕“塌腰”（中间下垂）。我们做了3轮结构仿真测试，从桌面内部骨架的加强筋布局到桌腿位置，反复优化。第一版2米跨度的样品下垂了5mm，超标了。最后通过在桌面底部预埋一根隐藏钢梁解决了问题——从外观上看不出来。\n\n**最终成品**\nSPAN 桌面系统最终支持最大2.4米跨度无中腿设计，承重达到120kg。它的“轻薄视觉+强悍功能”的组合成为了公司的主力桌型之一。客户反馈说：“桌子看起来很轻，但用起来特别稳。”",
+    "storyEn": "**Market Research**\nTeam collaboration is becoming the dominant workplace trend. I observed many companies grouping 4-6 person teams together but struggling to find the right table — either too small for computers and files, or too large wasting space. After visiting 6 tech companies, the requirements were clear: depth 600-800mm, width 1400-1800mm, concealed but accessible cable management.\n\n**Sketching**\nSPAN’s core concept was “large surface + hidden cabling.” I sketched dozens of desktop edge profiles, finally landing on a “cantilevered edge” design — the desktop edge curves upward slightly to form a natural lip, with an integrated cable trough underneath. From the side, the desktop looks incredibly thin (just 25mm), yet structurally strong enough for large spans.\n\n**Prototyping**\nLong-span desktops have a notorious enemy: sagging. We ran 3 rounds of structural simulation, optimizing everything from internal rib layout to leg positioning. The first 2-meter prototype sagged 5mm — unacceptable. The solution was a hidden steel beam embedded within the desktop. Invisible from the outside.\n\n**Final Product**\nSPAN Desk System supports spans up to 2.4 meters without center legs, with a load capacity of 120kg. Its “lightweight aesthetic + heavy-duty function” combination made it one of our company’s flagship desks. Client feedback: “It looks light, but it’s rock solid in use.”"
   },
   {
     "id": "grandeur",
@@ -132,7 +140,9 @@
       "sofa",
       "reception",
       "business space"
-    ]
+    ],
+    "story": "**需求调研**\n接待区是企业的“第一印象”。但很多公司把接待沙发当成纯预算项——只考虑价格不看品质。我走访了4家正在装修的公司的接待区，发现接待沙发有三个被忽视的需求：1）坐感要偏硬（接待时客人不会久坐，太软的沙发让人“陷进去”不雅观）；2）面料要耐磨耐脏；3）造型要体现企业形象。\n\n**草图构思**\nGRANDEUR 的灵感来自建筑中的“拱形”元素。我在速写本上画了一个半圆弧线的轮廓——用一条连续的弧线贯穿整个沙发的主框架，既有建筑感又有包容感。座面和靠背使用简约的分块设计，强调线条的干净利落。\n\n**打样过程**\n弧线金属框架的弯管工艺是第一道难关。3次弯管样品都出现了褶皱，调整了弯管模具和填充砂的密度后才成功。面料选择上，我们做了三版——头层牛皮、超纤皮、高级织物。最后客户反馈最喜欢织物款（触感温暖），但皮质款更加分。我们决定两个版本都保留。\n\n**最终成品**\nGRANDEUR 接待沙发成为了项目中最受欢迎的搭配单品之一。它的拱形轮廓成为了很多展厅的视觉焦点。有一位建筑师客户说它“让等候变成了一种享受”。",
+    "storyEn": "**Market Research**\nThe reception area is a company’s “first impression.” Yet many treat reception sofas as a pure budget line. After visiting 4 companies undergoing office renovations, I identified three overlooked needs: 1) Firmer seating — guests don’t sit for long, and overly soft sofas look unprofessional; 2) Durable, stain-resistant fabric; 3) A form that expresses the company’s identity.\n\n**Sketching**\nGRANDEUR was inspired by the “arch” in architecture. On my sketchbook, I drew a single continuous arc flowing through the sofa’s main frame — architectural yet welcoming. The seat and back use simple segmented panels, emphasizing clean lines.\n\n**Prototyping**\nBending the curved metal frame was the first hurdle. Three bent samples came out wrinkled before we adjusted the die and sand-fill density. For upholstery, we developed three options — full-grain leather, microfiber leather, and premium fabric. Client feedback preferred fabric (warmer touch) but leather graded higher. We kept both.\n\n**Final Product**\nGRANDEUR became one of the most popular items across projects. Its arched silhouette became a visual anchor in many showrooms. An architect client said it “turns waiting into a pleasure.”"
   },
   {
     "id": "tranquo",
@@ -159,7 +169,9 @@
       "sofa",
       "lounge",
       "quiet space"
-    ]
+    ],
+    "story": "**需求调研**\n现代办公空间正在从“效率至上”转向“健康优先”。我注意到越来越多的公司设置了“安静角”——供员工冥想、打私人电话、短暂逃离高压工作的小空间。这些空间需要的是“私密但不压抑”的家具。\n\n**草图构思**\nTranquo 的核心理念是“拥抱感”。我在草稿纸上画了一个侧面包裹、正面开放的座椅轮廓——像一个张开的怀抱。座椅的包裹高度经过反复推敲：太高会让人感到密闭恐惧，太低失去私密感。最终确定靠背高度在胸椎附近，既能隔音又不遮挡视线。\n\n**打样过程**\n底座稳定性是打样阶段的大问题。最初的设计用了一个小圆盘底座，但重力测试发现当身体侧向倾斜时容易翻倒。我们改用了更大的椭圆底盘，同时在底盘内部增加了配重块。座椅的填充海绵也经过了4轮硬度测试——太硬不舒适，太软失去了“支撑感”。\n\n**最终成品**\nTranquo 休闲座椅在上市后受到了意想不到的欢迎——不仅有办公室在用，也被咖啡厅和书店采购。它的“拥抱式”设计语言成为了品牌的标志性特征。有用户说坐在里面“像被一双温暖的手轻轻托住”——这正是我想要的体验。",
+    "storyEn": "**Market Research**\nModern offices are shifting from “efficiency-first” to “wellness-first.” I noticed more companies creating “quiet corners” — small spaces for meditation, private calls, or escaping work pressure. These spaces need furniture that feels “private but not claustrophobic.”\n\n**Sketching**\nTranquo’s core concept was “embrace.” I drew a silhouette that wraps around the sides while remaining open in front — like open arms. The wrap height went through careful calibration: too high creates claustrophobia, too low loses privacy. The final back height sits around the thoracic spine — enough to dampen sound without blocking vision.\n\n**Prototyping**\nBase stability was the biggest issue. The initial small round base tipped during lateral lean tests. We switched to a larger elliptical base with internal ballast weights. Seat cushion foam went through 4 rounds of hardness testing — too soft feels unsupportive, too hard is uncomfortable.\n\n**Final Product**\nTranquo found unexpected popularity beyond offices — cafés and bookstores started ordering it too. Its “embrace” form language became a brand signature. One user said sitting in it feels “like being gently held by warm hands” — exactly the experience I was aiming for."
   },
   {
     "id": "libby",

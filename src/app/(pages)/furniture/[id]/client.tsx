@@ -22,6 +22,27 @@ export function FurnitureDetailClient() {
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">{project.title}</h1>
         {project.images.length>0&&<div className="grid gap-4 mb-12">{project.images.map((img:string,i:number)=><div key={i} className="rounded-2xl overflow-hidden "><img decoding="async" src={assetPath(img)} alt={project.title+" - "+(i+1)} className="w-full object-cover" loading="lazy"/></div>)}</div>}
         <div className="max-w-none"><h2 className="text-xl font-bold mb-4">{dl.info}</h2><p className="text-[#666] leading-relaxed">{project.description}</p>
+        {/* ===== DESIGN STORY ===== */}
+        {project.story && (
+          <div className="mt-16">
+            <h2 className="text-xl font-bold mb-6">{lang==="en" ? "Design Story" : "设计故事"}</h2>
+            <div className="prose prose-sm max-w-none">
+              {lang==="en" ? (
+                <div className="text-[#555] leading-relaxed whitespace-pre-line">
+                  {project.storyEn?.split("**").map((part, i) => 
+                    i % 2 === 1 ? <span key={i} className="font-bold text-[#1A1A1A]">{part}</span> : <span key={i}>{part}</span>
+                  )}
+                </div>
+              ) : (
+                <div className="text-[#555] leading-relaxed whitespace-pre-line">
+                  {project.story?.split("**").map((part, i) => 
+                    i % 2 === 1 ? <span key={i} className="font-bold text-[#1A1A1A]">{part}</span> : <span key={i}>{part}</span>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
         {detailsLines.length>0&&<><h2 className="text-xl font-bold mt-10 mb-4">{dl.specs}</h2><div className="rounded-2xl p-6"><table className="w-full text-sm"><tbody>{detailsLines.map((line:string,i:number)=>{const ci=line.indexOf(": ");if(ci===-1)return null;const key=line.substring(0,ci);const val=line.substring(ci+2);return <tr key={i} className="border-b border-[#1A1A1A]/8 last:border-0"><td className="py-3 pr-4 font-semibold whitespace-nowrap">{key}</td><td className="py-3 text-[#666]">{val}</td></tr>})}</tbody></table></div></>}
         {project.id==="zoom-booth"&&<><h2 className="text-xl font-bold mt-10 mb-4">{dl.sampling}</h2><p className="text-sm text-[#666] mb-4">{dl.samplingDesc}</p><div className="grid sm:grid-cols-3 gap-4">{["zoom-1.png","zoom-2.png","zoom-3.png"].map((img,i)=><div key={i} className="rounded-xl overflow-hidden  border border-[#1A1A1A]/8"><img src={assetPath("/images/furniture/phone-proof/"+img)} alt={"Zoom booth sample "+(i+1)} className="w-full aspect-[4/3] object-cover" loading="lazy"/></div>)}</div></>}
         <div className="flex flex-wrap gap-2 mt-8">{project.tags?.map((tag:string)=><span key={tag} className="px-3 py-1 rounded-full  text-sm text-[#666]">#{tag}</span>)}</div>
