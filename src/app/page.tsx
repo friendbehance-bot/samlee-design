@@ -140,7 +140,7 @@ export default function Home() {
           </a>
           <div className="flex gap-6 justify-center mt-10">
             <a href="https://www.pexels.com/@sam-lee-2162121365/" target="_blank" rel="noopener" className="mono text-sm text-[#666] hover:text-[#1A1A1A] transition-colors">Pexels</a>
-            <a href="https://www.pinterest.com/friends%E5%9C%A8014/" target="_blank" rel="noopener" className="mono text-sm text-[#666] hover:text-[#1A1A1A] transition-colors">Pins</a>
+            <a href="https://www.pinterest.com/friendsz9014/" target="_blank" rel="noopener" className="mono text-sm text-[#666] hover:text-[#1A1A1A] transition-colors">Pins</a>
           </div>
         </div>
       </section>
