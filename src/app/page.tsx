@@ -38,6 +38,17 @@ export default function Home() {
     ? (<>furniture designer<br/>from China<br/>working globally.</>)
     : (<>办公家具设计师<br/>中国原创<br/>服务全球。</>);
 
+  const heroImages = [
+    selected[0]?.images?.[0] || "/images/furniture/panel/Dynasty_01.jpg",
+    selected[1]?.images?.[0] || "/images/furniture/desk/FLEX_01.png",
+    selected[4]?.images?.[0] || "/images/furniture/sofa/GRANDEUR_01.jpg",
+    "/images/photography/architecture/DSC01710.jpg",
+    "/images/photography/architecture/DSC03106-.jpg.jpg",
+    selected[5]?.images?.[0] || "/images/furniture/sofa/Tranquo_01.jpg",
+  ].filter(Boolean);
+
+  const [currentImg, setCurrentImg] = useState(0);
+
   const heroImg = selected[0]?.images?.[0] || "/images/furniture/panel/Dynasty_01.jpg";
   const heroLabel = lang === "en" ? "EST. 1996 · 30 YEARS" : "始于1996 · 三十年";
 
@@ -86,32 +97,35 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* RIGHT - Full width image */}
+          {/* RIGHT - Image Rotator */}
           <div className="h-[50vh] md:h-screen relative overflow-hidden">
-            <img
-              src={assetPath(heroImg)}
-              alt="Featured furniture design"
-              className="w-full h-full object-cover img-sketch"
-            />
+            <div className="absolute inset-0">
+              {heroImages.map((img, i) => (
+                <img key={i}
+                  src={img.startsWith("http") ? img : assetPath(img)}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms]"
+                  style={{
+                    opacity: currentImg === i ? 1 : 0,
+                    transform: currentImg === i ? "scale(1)" : "scale(1.06)",
+                    filter: currentImg === i ? "saturate(0.78) brightness(1.06)" : "saturate(0.65) brightness(0.85)"
+                  }}
+                />
+              ))}
+            </div>
+            <div className="absolute inset-0" style={{background:"linear-gradient(90deg, rgba(246,243,236,0.5) 0%, transparent 40%)"}} />
+            <div className="absolute bottom-8 left-8 md:left-auto md:right-8 flex gap-2 z-10">
+              {heroImages.map((_, i) => (
+                <button key={i}
+                  onClick={() => setCurrentImg(i)}
+                  className="h-px transition-all duration-500"
+                  style={{width: currentImg === i ? "32px" : "12px", background: currentImg === i ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)"}}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
-      {/* ===== STATS ===== */}
-      <div style={{ background: "#F6F3EC" }}>
-        <div className="max-w-4xl mx-auto stats-bar reveal-up">
-          {[
-            { num: "30+", label: lang === "en" ? "Years" : "经验年限" },
-            { num: "200+", label: lang === "en" ? "Projects" : "项目成果" },
-            { num: "50+", label: lang === "en" ? "Clients" : "服务客户" },
-          ].map((s) => (
-            <div key={s.num} className="stat-item">
-              <div className="stat-number">{s.num}</div>
-              <div className="stat-label">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* ===== CAPABILITIES ===== */}
       <section className="py-28 px-8 md:px-16" style={{ background: "#F6F3EC" }}>
