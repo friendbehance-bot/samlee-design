@@ -19,26 +19,60 @@ export default function Home() {
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    const tmr = setTimeout(() => setLoaded(true), 100);
-    return () => clearTimeout(tmr);
+    gsap.registerPlugin(ScrollTrigger);
   }, []);
 
   useEffect(() => {
-    if (!loaded) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setRevealed(prev => new Set(prev).add(entry.target.id || "section-" + Math.random()));
-            entry.target.classList.add("revealed");
-          }
+    if (!heroRef.current) return;
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.fromTo(watermarkRef.current, { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2 });
+    tl.fromTo(".hero-label", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, "-=0.6");
+    tl.fromTo(".hero-title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, "-=0.5");
+    tl.fromTo(".hero-tagline", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, "-=0.5");
+    tl.fromTo(".hero-buttons", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.3");
+    tl.fromTo(imgRef.current, { scale: 1.15, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2 }, "-=1.0");
+    return () => { tl.kill(); };
+  }, []);
+
+  useEffect(() => {
+    if (heroImages.length < 2) return;
+    let current = 0;
+    const next = () => {
+      current = (current + 1) % heroImages.length;
+      setCurrentImg(current);
+      const imgs = document.querySelectorAll(".hero-slide");
+      imgs.forEach((img, i) => {
+        gsap.to(img, {
+          opacity: i === current ? 1 : 0,
+          scale: i === current ? 1 : 1.08,
+          filter: i === current ? "saturate(0.78) brightness(1.06)" : "saturate(0.65) brightness(0.85)",
+          duration: 1.4, ease: "power2.inOut"
         });
-      },
+      });
+    };
+    const interval = setInterval(next, 4800);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (!imgRef.current) return;
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: heroRef.current, start: "top top", end: "bottom top",
+        onUpdate: (self) => { if (imgRef.current) gsap.set(imgRef.current, { y: self.progress * 80 }); }
+      });
+    }, heroRef);
+    return () => { ctx.revert(); };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => { entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add("revealed"); }); },
       { threshold: 0.12 }
     );
-    document.querySelectorAll(".reveal-up, .reveal-scale, .reveal-stagger").forEach((t) => observer.observe(t));
+    document.querySelectorAll(".reveal-up, .reveal-stagger").forEach((t) => observer.observe(t));
     return () => observer.disconnect();
-  }, [loaded]);
+  }, []);
 
   const tagline = lang === "en"
     ? (<>furniture designer<br/>from China<br/>working globally.</>)
