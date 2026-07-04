@@ -1,5 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 import { assetPath } from "@/lib/asset";
@@ -8,6 +10,10 @@ import projects from "@/../content/projects.json";
 const selected = projects.filter((p: any) => p.featured).slice(0, 6);
 
 export default function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
+  const watermarkRef = useRef<HTMLDivElement>(null);
   const { t, lang } = useLang();
   const [loaded, setLoaded] = useState(false);
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
@@ -77,23 +83,25 @@ export default function Home() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="min-h-screen flex items-end md:items-center relative" style={{ background: "#F6F3EC" }}>
-        <div className="w-full grid md:grid-cols-2 min-h-screen">
-          {/* LEFT */}
-          <div className={`flex flex-col justify-center px-8 md:px-16 lg:px-24 py-24 md:py-0 relative ${loaded ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}>
-            <div className="watermark-30" style={{ bottom: "0.5em", left: "0.3em" }}>30</div>
+      <section ref={heroRef} className="min-h-screen flex items-end md:items-center relative overflow-hidden" style={{ background: "#F6F3EC" }}>
+        {/* Grain overlay */}
+        <div className="absolute inset-0 pointer-events-none z-[1]" style={{ opacity: 0.25, backgroundImage: "url(data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E)", backgroundSize: "256px 256px", backgroundRepeat: "repeat" }} />
+        <div className="w-full grid md:grid-cols-2 min-h-screen relative z-[2]">
+          {/* LEFT - Text */}
+          <div ref={textRef} className="flex flex-col justify-center px-8 md:px-16 lg:px-24 py-24 md:py-0 relative">
+            <div ref={watermarkRef} className="watermark-30" style={{ bottom: "0.5em", left: "0.3em" }}>30</div>
             <div className="relative z-10">
-              <div className="mono text-[10px] tracking-[0.2em] mb-6" style={{ color: "#C4956A" }}>
+              <div className="hero-label mono text-[10px] tracking-[0.2em] mb-6 opacity-0" style={{ color: "#C4956A" }}>
                 {heroLabel}
               </div>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.92] tracking-tight mb-6"
+              <h1 className="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.92] tracking-tight mb-6 opacity-0"
                 style={{ fontFamily: "'Azeret Mono',monospace", letterSpacing: "-0.04em" }}>
                 Sam<br/>Lee
               </h1>
-              <p className="text-base sm:text-lg leading-relaxed max-w-sm mb-12" style={{ color: "#666" }}>
+              <p className="hero-tagline text-base sm:text-lg leading-relaxed max-w-sm mb-12 opacity-0" style={{ color: "#666" }}>
                 {tagline}
               </p>
-              <div className="flex gap-4">
+              <div className="hero-buttons flex gap-4 opacity-0">
                 <Link href="/furniture" className="mono inline-flex items-center gap-2 px-6 py-3 text-white text-sm font-medium transition-all duration-300 hover:opacity-80"
                   style={{ background: "#1A1A1A" }}>
                   {t("btn.works")} <span className="text-lg">&rarr;</span>
@@ -105,29 +113,22 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* RIGHT - Image Rotator */}
-          <div className="h-[50vh] md:h-screen relative overflow-hidden">
-            <div className="absolute inset-0">
-              {heroImages.map((img, i) => (
-                <img key={i}
-                  src={img.startsWith("http") ? img : assetPath(img)}
-                  alt=""
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms]"
-                  style={{
-                    opacity: currentImg === i ? 1 : 0,
-                    transform: currentImg === i ? "scale(1)" : "scale(1.06)",
-                    filter: currentImg === i ? "saturate(0.78) brightness(1.06)" : "saturate(0.65) brightness(0.85)"
-                  }}
-                />
-              ))}
-            </div>
+          {/* RIGHT - Image Rotator with GSAP */}
+          <div ref={imgRef} className="h-[50vh] md:h-screen relative overflow-hidden">
+            {heroImages.map((img, i) => (
+              <img key={i}
+                src={img.startsWith("http") ? img : assetPath(img)}
+                alt=""
+                className="hero-slide absolute inset-0 w-full h-full object-cover"
+                style={{ opacity: i === 0 ? 1 : 0, scale: i === 0 ? 1 : 1.08 }}
+              />
+            ))}
             <div className="absolute inset-0" style={{background:"linear-gradient(90deg, rgba(246,243,236,0.5) 0%, transparent 40%)"}} />
             <div className="absolute bottom-8 left-8 md:left-auto md:right-8 flex gap-2 z-10">
               {heroImages.map((_, i) => (
-                <button key={i}
-                  onClick={() => setCurrentImg(i)}
-                  className="h-px transition-all duration-500"
-                  style={{width: currentImg === i ? "32px" : "12px", background: currentImg === i ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)"}}
+                <div key={i}
+                  className={`indicator-dot h-px transition-all duration-500 ease-out ${i === 0 ? "active" : ""}`}
+                  style={{width: i === 0 ? "32px" : "12px", background: i === 0 ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)"}}
                 />
               ))}
             </div>
