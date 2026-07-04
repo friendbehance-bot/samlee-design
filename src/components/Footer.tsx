@@ -1,25 +1,28 @@
-﻿"use client";
+"use client";
 import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 
 export default function Footer() {
-  const { t, lang } = useLang();
+  const { t } = useLang();
+  const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-[#1A1A1A]/8 py-10" style={{background:"#F6F3EC"}}>
+    <footer className="border-t py-10" style={{background:"#F6F3EC", borderColor:"rgba(26,26,26,0.06)"}}>
       <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex gap-6 text-xs text-[#666]">
-          <Link href="/furniture" className="hover:text-[#1A1A1A] transition-colors">{t("nav.furniture")}</Link>
-          <Link href="/projects" className="hover:text-[#1A1A1A] transition-colors">{t("nav.projects")}</Link>
-          <Link href="/photography" className="hover:text-[#1A1A1A] transition-colors">{t("nav.photography")}</Link>
-          <Link href="/travel" className="hover:text-[#1A1A1A] transition-colors">{t("nav.travel")}</Link>
-          <Link href="/contact" className="hover:text-[#1A1A1A] transition-colors">{t("nav.contact")}</Link>
+        <div className="flex gap-6 text-xs">
+          <Link href="/furniture" className="transition-all duration-300" style={{color:"#999"}}>{t("nav.furniture")}</Link>
+          <Link href="/projects" className="transition-all duration-300" style={{color:"#999"}}>{t("nav.projects")}</Link>
+          <Link href="/photography" className="transition-all duration-300" style={{color:"#999"}}>{t("nav.photography")}</Link>
+          <Link href="/travel" className="transition-all duration-300" style={{color:"#999"}}>{t("nav.travel")}</Link>
+          <Link href="/contact" className="transition-all duration-300" style={{color:"#999"}}>{t("nav.contact")}</Link>
         </div>
-        <div className="flex gap-4 text-xs text-[#666]">
-            <a href="https://www.pexels.com/@sam-lee-2162121365/" target="_blank" rel="noopener" className="hover:text-[#1A1A1A] transition-colors">Pexels</a>
-            <a href="https://www.pinterest.com/friendsz9014/" target="_blank" rel="noopener" className="hover:text-[#1A1A1A] transition-colors">Pins</a>
-            <a href="https://www.linkedin.com/in/sam-lee-583aa041a/" target="_blank" rel="noopener" className="hover:text-[#1A1A1A] transition-colors">LinkedIn</a>
+        <div className="flex gap-4 text-xs">
+            <a href="https://www.pexels.com/@sam-lee-2162121365/" target="_blank" rel="noopener" className="transition-all duration-300" style={{color:"#999"}}>Pexels</a>
+            <a href="https://www.pinterest.com/friendsz9014/" target="_blank" rel="noopener" className="transition-all duration-300" style={{color:"#999"}}>Pins</a>
+            <a href="https://www.linkedin.com/in/sam-lee-583aa041a/" target="_blank" rel="noopener" className="transition-all duration-300" style={{color:"#999"}}>LinkedIn</a>
           </div>
-          <p className="text-xs text-[#999]">© 2026 Sam Lee</p>
+          <p className="text-xs" style={{color:"rgba(196,149,106,0.4)"}}>
+            &copy; {year} Sam<span style={{color:"#C4956A"}}>.</span>Lee
+          </p>
       </div>
     </footer>
   );
