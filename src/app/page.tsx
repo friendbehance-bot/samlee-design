@@ -49,6 +49,14 @@ export default function Home() {
 
   const [currentImg, setCurrentImg] = useState(0);
 
+  useEffect(() => {
+    if (!loaded) return;
+    const interval = setInterval(() => {
+      setCurrentImg(prev => (prev + 1) % heroImages.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [loaded, heroImages.length]);
+
   const heroImg = selected[0]?.images?.[0] || "/images/furniture/panel/Dynasty_01.jpg";
   const heroLabel = lang === "en" ? "EST. 1996 · 30 YEARS" : "始于1996 · 三十年";
 
