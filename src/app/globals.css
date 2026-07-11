@@ -277,7 +277,7 @@ html { scroll-behavior: smooth; }
   font-family: 'Azeret Mono', monospace;
   font-size: clamp(10rem, 28vw, 28rem);
   font-weight: 700; line-height: 1;
-  color: rgba(196,149,106,0.05);
+  color: rgba(196,149,106,0.12);
   pointer-events: none; user-select: none; z-index: 0;
   letter-spacing: -0.06em;
 }
@@ -323,4 +323,76 @@ html { scroll-behavior: smooth; }
 }
 .video-hide-bar::-webkit-media-controls-panel {
   justify-content: center !important;
+}
+/* ===== DARK SECTION ===== */
+.section-dark {
+  background: #1A1A1A;
+  color: rgba(255,255,255,0.85);
+}
+.section-dark a:not(.social-link-dark) { color: rgba(255,255,255,0.7); }
+.section-dark a:not(.social-link-dark):hover { color: #C4956A !important; }
+
+/* ===== ALTERNATE SECTION ===== */
+.section-alt-warm { background: #EDE8DE; }
+
+/* ===== CONTACT DARK ===== */
+.contact-email-dark {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+.contact-email-dark:hover { color: #C4956A; }
+
+.social-link-dark {
+  font-family: "Azeret Mono",monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  transition: all 0.3s ease;
+  position: relative;
+}
+.social-link-dark:hover { color: #C4956A; }
+.social-link-dark::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: #C4956A;
+  transition: width 0.3s ease;
+}
+.social-link-dark:hover::after { width: 100%; }
+
+/* ===== SIDE CONTACT (Bene-inspired) ===== */
+.side-contact {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+}
+.side-contact a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1A1A1A;
+  color: white;
+  padding: 12px 8px;
+  border-radius: 6px 0 0 6px;
+  writing-mode: vertical-rl;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.side-contact a:hover {
+  background: #C4956A;
+  padding-right: 20px;
+}
+.side-contact span {
+  font-family: "Azeret Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
 }

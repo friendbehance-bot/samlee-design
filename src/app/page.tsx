@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -45,7 +45,7 @@ export default function Home() {
         gsap.to(img, {
           opacity: i === current ? 1 : 0,
           scale: i === current ? 1 : 1.08,
-          filter: i === current ? "saturate(0.78) brightness(1.06)" : "saturate(0.65) brightness(0.85)",
+          filter: i === current ? "saturate(1) brightness(0.9)" : "saturate(1) brightness(0.75)",
           duration: 1.4, ease: "power2.inOut"
         });
       });
@@ -116,57 +116,66 @@ export default function Home() {
 
   return (
     <>
-      {/* ===== HERO ===== */}
-      <section ref={heroRef} className="min-h-screen flex items-end md:items-center relative overflow-hidden" style={{ background: "#F6F3EC" }}>
-        {/* Grain overlay */}
-        <div className="absolute inset-0 pointer-events-none z-[1]" style={{ opacity: 0.25, backgroundImage: "url(data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E)", backgroundSize: "256px 256px", backgroundRepeat: "repeat" }} />
-        <div className="w-full grid md:grid-cols-2 min-h-screen relative z-[2]">
-          {/* LEFT - Text */}
-          <div ref={textRef} className="flex flex-col justify-center px-8 md:px-16 lg:px-24 py-24 md:py-0 relative">
-            <div ref={watermarkRef} className="watermark-30" style={{ bottom: "0.5em", left: "0.3em" }}>30</div>
-            <div className="relative z-10">
-              <div className="hero-label mono text-[10px] tracking-[0.2em] mb-6 opacity-0" style={{ color: "#C4956A" }}>
-                {heroLabel}
-              </div>
-              <h1 className="hero-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.92] tracking-tight mb-6 opacity-0"
-                style={{ fontFamily: "'Azeret Mono',monospace", letterSpacing: "-0.04em" }}>
-                Sam<br/>Lee
-              </h1>
-              <p className="hero-tagline text-base sm:text-lg leading-relaxed max-w-sm mb-12 opacity-0" style={{ color: "#666" }}>
-                {tagline}
-              </p>
-              <div className="hero-buttons flex gap-4 opacity-0">
-                <Link href="/furniture" className="mono inline-flex items-center gap-2 px-6 py-3 text-white text-sm font-medium transition-all duration-300 hover:opacity-80"
-                  style={{ background: "#1A1A1A" }}>
-                  {t("btn.works")} <span className="text-lg">&rarr;</span>
-                </Link>
-                <Link href="/about" className="mono inline-flex items-center gap-2 px-6 py-3 text-sm font-medium transition-all duration-300"
-                  style={{ border: "1px solid rgba(26,26,26,0.1)", color: "#666" }}>
-                  {t("btn.learnMore")}
-                </Link>
-              </div>
+      {/* ===== SIDE CONTACT (Bene-inspired) ===== */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 hidden md:block">
+        <a href="mailto:friendbehance@gmail.com"
+           className="group flex items-center gap-3 bg-[#1A1A1A] text-white px-3 py-4 rounded-l-md transition-all duration-300 hover:bg-[#C4956A] hover:pr-6"
+           style={{ writingMode: "vertical-rl" }}>
+          <span className="mono text-[9px] tracking-[0.2em] uppercase transition-all">Get in touch</span>
+        </a>
+      </div>
+      {/* ===== HERO (Bene-inspired: full-bleed image + overlay text) ===== */}
+      <section ref={heroRef} className="relative min-h-screen overflow-hidden">
+        {/* Full-bleed background image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={assetPath(heroImages[currentImg] || "/images/furniture/panel/Dynasty_01.jpg")}
+            alt=""
+            className="w-full h-full object-cover transition-opacity duration-[1400ms] ease-in-out"
+            style={{ opacity: loaded ? 1 : 0 }}
+          onLoad={() => setLoaded(true)}
+          />
+          {/* Dark gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
+        </div>
+
+        {/* Overlay content — left aligned, over the image */}
+        <div className="relative z-10 flex items-end md:items-center min-h-screen px-8 md:px-16 lg:px-24 pb-20 md:pb-0">
+          <div className="max-w-2xl">
+            {/* Small label */}
+            <div className="hero-label mono text-[10px] tracking-[0.2em] uppercase mb-6 opacity-0" style={{ color: "#C4956A" }}>
+              {heroLabel}
+            </div>
+            {/* Big product name / brand */}
+            <h1 className="hero-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-8 opacity-0 text-white">
+              Sam<span style={{ color: "#C4956A" }}>.</span>Lee
+            </h1>
+            {/* Tagline */}
+            <p className="hero-tagline text-base sm:text-lg md:text-xl leading-relaxed max-w-md mb-12 opacity-0" style={{ color: "rgba(255,255,255,0.75)" }}>
+              {tagline}
+            </p>
+            {/* CTA buttons */}
+            <div className="hero-buttons flex gap-4 opacity-0">
+              <Link href="/furniture" className="mono inline-flex items-center gap-2 px-6 py-3 text-white text-sm font-medium transition-all duration-300 hover:bg-[#C4956A]"
+                style={{ border: "1px solid rgba(255,255,255,0.3)", background: "transparent" }}>
+                {t("btn.works")} <span className="text-lg">&rarr;</span>
+              </Link>
+              <Link href="/about" className="mono inline-flex items-center gap-2 px-6 py-3 text-sm font-medium transition-all duration-300"
+                style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)" }}>
+                {t("btn.learnMore")}
+              </Link>
             </div>
           </div>
-          {/* RIGHT - Image Rotator with GSAP */}
-          <div ref={imgRef} className="h-[50vh] md:h-screen relative overflow-hidden">
-            {heroImages.map((img, i) => (
-              <img key={i}
-                src={img.startsWith("http") ? img : assetPath(img)}
-                alt=""
-                className="hero-slide absolute inset-0 w-full h-full object-cover"
-                style={{ opacity: i === 0 ? 1 : 0, scale: i === 0 ? 1 : 1.08 }}
-              />
-            ))}
-            <div className="absolute inset-0" style={{background:"linear-gradient(90deg, rgba(246,243,236,0.5) 0%, transparent 40%)"}} />
-            <div className="absolute bottom-8 left-8 md:left-auto md:right-8 flex gap-2 z-10">
-              {heroImages.map((_, i) => (
-                <div key={i}
-                  className={`indicator-dot h-px transition-all duration-500 ease-out ${i === 0 ? "active" : ""}`}
-                  style={{width: i === 0 ? "32px" : "12px", background: i === 0 ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)"}}
-                />
-              ))}
-            </div>
-          </div>
+        </div>
+
+        {/* Slide indicator dots */}
+        <div className="absolute bottom-8 left-8 md:left-16 z-10 flex gap-2">
+          {heroImages.map((_, i) => (
+            <button key={i} onClick={() => setCurrentImg(i)}
+              className="transition-all duration-300 rounded-full"
+              style={{ width: currentImg === i ? "24px" : "8px", height: "8px", backgroundColor: currentImg === i ? "#C4956A" : "rgba(255,255,255,0.3)" }}
+            />
+          ))}
         </div>
       </section>
 
@@ -227,7 +236,7 @@ export default function Home() {
       </section>
 
       {/* ===== ABOUT ===== */}
-      <section className="py-28 px-8 md:px-16" style={{ background: "#F6F3EC" }}>
+      <section className="py-28 px-8 md:px-16 section-alt-warm">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 md:gap-24 items-center reveal-up">
           <div className="relative w-full">
             <img src={assetPath("/images/profile/sam-portrait.jpg")} alt="Sam Lee" className="w-full aspect-[3/4] object-cover" />
@@ -249,26 +258,23 @@ export default function Home() {
       </section>
 
       {/* ===== CONTACT ===== */}
-      <section className="py-24 px-8 md:px-16 border-t" style={{ background: "#F6F3EC", borderColor: "rgba(26,26,26,0.04)" }}>
-        <div className="max-w-2xl mx-auto text-center reveal-up">
-          <span className="mono text-[10px] tracking-[0.25em] uppercase mb-8 inline-block" style={{ color: "#C4956A" }}>
+      <section className="py-28 px-8 md:px-16 section-dark border-0 relative overflow-hidden">
+        <div className="max-w-2xl mx-auto text-center relative z-10 reveal-up">
+          <div className="divider-dot mb-12"><span></span></div>
+          <span className="mono text-[10px] tracking-[0.25em] uppercase mb-6 inline-block" style={{color: "rgba(196,149,106,0.6)"}}>
             {lang === "en" ? "Get in Touch" : "取得联系"}
           </span>
-          <a href="mailto:friendbehance@gmail.com"
-            className="mono text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider transition-all duration-300 inline-block"
-            style={{ color: "#1A1A1A", letterSpacing: "-0.02em" }}>
-            FRIENDBEHANCE@GMAIL.COM
-          </a>
-          <div className="flex gap-8 justify-center mt-12">
-            <a href="https://www.pexels.com/@sam-lee-2162121365/" target="_blank" rel="noopener"
-              className="mono text-xs tracking-wider transition-all duration-300" style={{ color: "#999" }}>Pexels</a>
-            <span style={{ color: "rgba(196,149,106,0.2)" }}>/</span>
-            <a href="https://www.pinterest.com/friendsz9014/" target="_blank" rel="noopener"
-              className="mono text-xs tracking-wider transition-all duration-300" style={{ color: "#999" }}>Pins</a>
-            <span style={{ color: "rgba(196,149,106,0.2)" }}>/</span>
-            <a href="https://www.linkedin.com/in/sam-lee-583aa041a/" target="_blank" rel="noopener"
-              className="mono text-xs tracking-wider transition-all duration-300" style={{ color: "#999" }}>LinkedIn</a>
+          <div className="mb-8">
+            <a href="mailto:friendbehance@gmail.com" className="contact-email-dark">
+              FRIENDBEHANCE@GMAIL.COM
+            </a>
           </div>
+          <div className="flex gap-10 justify-center mt-10">
+            <a href="https://www.pexels.com/@sam-lee-2162121365/" target="_blank" rel="noopener" className="social-link-dark">Pexels</a>
+            <a href="https://www.pinterest.com/friendsz9014/" target="_blank" rel="noopener" className="social-link-dark">Pins</a>
+            <a href="https://www.linkedin.com/in/sam-lee-583aa041a/" target="_blank" rel="noopener" className="social-link-dark">LinkedIn</a>
+          </div>
+          <div className="divider-dot mt-12"><span></span></div>
         </div>
       </section>
     </>
