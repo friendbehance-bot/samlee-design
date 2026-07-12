@@ -13,15 +13,11 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { t, lang } = useLang();
   const [loaded, setLoaded] = useState(false);
-  const [currentImg, setCurrentImg] = useState(0);
+  // Space video background — no carousel needed
 
   useEffect(() => { gsap.registerPlugin(ScrollTrigger); }, []);
 
-  useEffect(() => {
-    if (!loaded) return;
-    const interval = setInterval(() => setCurrentImg(prev => (prev + 1) % heroImages.length), 4500);
-    return () => clearInterval(interval);
-  }, [loaded]);
+  // Video autoplays — no interval needed
 
   useEffect(() => {
     if (!heroRef.current) return;
@@ -42,14 +38,7 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const heroImages = [
-    selected[0]?.images?.[0] || "/images/furniture/panel/Dynasty_01.jpg",
-    selected[1]?.images?.[0] || "/images/furniture/desk/FLEX_01.png",
-    selected[4]?.images?.[0] || "/images/furniture/sofa/GRANDEUR_01.jpg",
-    "/images/photography/architecture/DSC01710.jpg",
-    "/images/photography/architecture/DSC03106-.jpg.jpg",
-    selected[5]?.images?.[0] || "/images/furniture/sofa/Tranquo_01.jpg",
-  ].filter(Boolean);
+  // Hero uses video background, no carousel images needed
 
   const caps = lang === "en"
     ? [
@@ -79,12 +68,17 @@ export default function Home() {
       {/* HERO */}
       <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
-          <img
-            src={assetPath(heroImages[currentImg] || "/images/furniture/panel/Dynasty_01.jpg")}
-            alt="" className="w-full h-full object-cover transition-opacity duration-[1400ms] ease-in-out"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
             style={{ opacity: loaded ? 1 : 0 }}
-            onLoad={() => setLoaded(true)}
-          />
+            onLoadedData={() => setLoaded(true)}
+          >
+            <source src={assetPath("/videos/sam-animation.mp4")} type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
         </div>
 
