@@ -46,24 +46,6 @@ export default function Home() {
     return () => { tl.kill(); };
   }, []);
 
-  // Hero background image crossfade (hero-bg-slide)
-  useEffect(() => {
-    if (heroImages.length < 2) return;
-    let current = 0;
-    const interval = setInterval(() => {
-      current = (current + 1) % heroImages.length;
-      document.querySelectorAll(".hero-bg-slide").forEach((img, i) => {
-        gsap.to(img, {
-          opacity: i === current ? 0.35 : 0,
-          scale: i === current ? 1 : 1.06,
-          filter: i === current ? "saturate(0.7) brightness(0.85)" : "saturate(0.5) brightness(0.6)",
-          duration: 1.6, ease: "power2.inOut"
-        });
-      });
-    }, 4800);
-    return () => clearInterval(interval);
-  }, []);
-
   // Core Expertise Bento image crossfade (hero-slide)
   useEffect(() => {
     if (heroImages.length < 2) return;
@@ -126,19 +108,11 @@ export default function Home() {
         </a>
       </div>
 
-      {/* ===== HERO - Full-screen Video Background + Image Crossfade ===== */}
+      {/* ===== HERO - Video Background Only ===== */}
       <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%)" }} />
-          {heroImages.map((img, i) => (
-            <img key={i}
-              src={img.startsWith("http") ? img : assetPath(img)}
-              alt=""
-              className="hero-bg-slide absolute inset-0 w-full h-full object-cover"
-              style={{ opacity: i === 0 ? 0.35 : 0, scale: i === 0 ? 1 : 1.06 }}
-            />
-          ))}
-          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" style={{ opacity: loaded ? 1 : 0 }}
+          <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover"
             onLoadedData={() => setLoaded(true)}>
             <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" type="video/mp4" />
           </video>
