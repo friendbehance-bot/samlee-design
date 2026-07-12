@@ -82,6 +82,15 @@ export default function Home() {
       {/* HERO */}
       <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
+          {/* Static background image (always visible) */}
+          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%)" }} />
+          <img
+            src={assetPath(heroImages[currentImg])}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out"
+            style={{ opacity: loaded ? 0.35 : 0 }}
+            onLoad={() => setLoaded(true)}
+          />
           <video
             autoPlay
             loop
@@ -91,7 +100,7 @@ export default function Home() {
             style={{ opacity: loaded ? 1 : 0 }}
             onLoadedData={() => setLoaded(true)}
           >
-            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" type="video/mp4" />
+            <source src={assetPath("/videos/sam-animation.mp4")} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
         </div>
