@@ -28,7 +28,6 @@ const statsDarkData = [
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLDivElement>(null);
   const watermarkRef = useRef<HTMLDivElement>(null);
   const { t, lang } = useLang();
   const [loaded, setLoaded] = useState(false);
@@ -45,6 +44,25 @@ export default function Home() {
     tl.fromTo(".hero-tagline", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, "-=0.5");
     tl.fromTo(".hero-buttons", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.3");
     return () => { tl.kill(); };
+  }, []);
+
+  // Hero background image crossfade
+  useEffect(() => {
+    if (heroImages.length < 2) return;
+    let current = 0;
+    const interval = setInterval(() => {
+      current = (current + 1) % heroImages.length;
+      const imgs = document.querySelectorAll(".hero-bg-slide");
+      imgs.forEach((img, i) => {
+        gsap.to(img, {
+          opacity: i === current ? 0.35 : 0,
+          scale: i === current ? 1 : 1.06,
+          filter: i === current ? "saturate(0.7) brightness(0.85)" : "saturate(0.5) brightness(0.6)",
+          duration: 1.6, ease: "power2.inOut"
+        });
+      });
+    }, 4800);
+    return () => clearInterval(interval);
   }, []);
 
   // IntersectionObserver
@@ -65,13 +83,6 @@ export default function Home() {
     "/images/photography/architecture/DSC03106-.jpg.jpg",
     selected[5]?.images?.[0] || "/images/furniture/sofa/Tranquo_01.jpg",
   ].filter(Boolean);
-
-  const [currentImg, setCurrentImg] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => setCurrentImg(prev => (prev + 1) % heroImages.length), 4500);
-    return () => clearInterval(interval);
-  }, []);
 
   const caps = lang === "en"
     ? [
@@ -98,16 +109,19 @@ export default function Home() {
         </a>
       </div>
 
-      {/* ===== HERO - Full-screen Video Background ===== */}
+      {/* ===== HERO - Full-screen Video Background + Image Crossfade ===== */}
       <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%)" }} />
-          <img
-            src={assetPath(heroImages[currentImg])}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out"
-            style={{ opacity: loaded ? 0.35 : 0 }}
-          />
+          {/* Layered background images for GSAP crossfade */}
+          {heroImages.map((img, i) => (
+            <img key={i}
+              src={img.startsWith("http") ? img : assetPath(img)}
+              alt=""
+              className="hero-bg-slide absolute inset-0 w-full h-full object-cover"
+              style={{ opacity: i === 0 ? 0.35 : 0, scale: i === 0 ? 1 : 1.06 }}
+            />
+          ))}
           <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" style={{ opacity: loaded ? 1 : 0 }}
             onLoadedData={() => setLoaded(true)}>
             <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" type="video/mp4" />
@@ -163,7 +177,7 @@ export default function Home() {
             <div className="md:col-span-2">
               <div className="grid grid-cols-2 grid-rows-2 gap-3 h-full min-h-[320px]">
                 {/* Main image */}
-                <div ref={imgRef} className="col-span-1 row-span-2 relative overflow-hidden rounded-xl">
+                <div className="col-span-1 row-span-2 relative overflow-hidden rounded-xl">
                   {heroImages.map((img, i) => (
                     <img key={i}
                       src={img.startsWith("http") ? img : assetPath(img)}
