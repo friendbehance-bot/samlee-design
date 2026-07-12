@@ -109,14 +109,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-8 md:left-16 z-10 flex gap-2">
-          {heroImages.map((_, i) => (
-            <button key={i} onClick={() => setCurrentImg(i)}
-              className="transition-all duration-300 rounded-full"
-              style={{ width: currentImg === i ? "24px" : "8px", height: "8px", backgroundColor: currentImg === i ? "#C4956A" : "rgba(255,255,255,0.3)" }}
-            />
-          ))}
-        </div>
+
       </section>
 
       {/* CAPABILITIES */}
