@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="mb-16 max-w-2xl mx-auto">
           <div className="rounded-2xl overflow-hidden liquid-glass-gold">
             <video
-              src={assetPath("/videos/sam-animation.mp4")}
+              src={assetPath("https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4")}
               className="w-full aspect-video object-cover video-hide-bar"
               autoPlay muted playsInline controls preload="metadata" controlsList="nodownload noremoteplayback"
               onEnded={(e)=>{const t=e.target as HTMLVideoElement; t.style.opacity="1"}}
