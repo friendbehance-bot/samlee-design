@@ -123,30 +123,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* PRODUCT SHOWCASE OVERLAY */}
-        <div className="absolute bottom-28 right-8 md:right-16 z-10 hidden lg:block">
-          <div className="liquid-glass-strong rounded-2xl p-3 w-64">
-            <div className="aspect-[4/3] rounded-xl overflow-hidden">
-              <img
-                src={assetPath(heroImages[currentImg])}
-                alt=""
-                className="w-full h-full object-cover transition-opacity duration-700"
-              />
-            </div>
-            <div className="flex gap-1.5 justify-center mt-3">
-              {heroImages.map((_, i) => (
-                <button key={i} onClick={() => setCurrentImg(i)}
-                  className="rounded-full transition-all duration-300"
-                  style={{
-                    width: currentImg === i ? "20px" : "6px",
-                    height: "6px",
-                    backgroundColor: currentImg === i ? "#C4956A" : "rgba(255,255,255,0.25)"
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
 
       </section>
 
