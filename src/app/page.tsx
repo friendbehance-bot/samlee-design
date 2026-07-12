@@ -38,7 +38,21 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  // Hero uses video background, no carousel images needed
+  const heroImages = [
+    selected[0]?.images?.[0] || "/images/furniture/panel/Dynasty_01.jpg",
+    selected[1]?.images?.[0] || "/images/furniture/desk/FLEX_01.png",
+    selected[4]?.images?.[0] || "/images/furniture/sofa/GRANDEUR_01.jpg",
+    "/images/photography/architecture/DSC01710.jpg",
+    "/images/photography/architecture/DSC03106-.jpg.jpg",
+    selected[5]?.images?.[0] || "/images/furniture/sofa/Tranquo_01.jpg",
+  ].filter(Boolean);
+
+  const [currentImg, setCurrentImg] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => setCurrentImg(prev => (prev + 1) % heroImages.length), 4500);
+    return () => clearInterval(interval);
+  }, []);
 
   const caps = lang === "en"
     ? [
@@ -109,6 +123,30 @@ export default function Home() {
           </div>
         </div>
 
+        {/* PRODUCT SHOWCASE OVERLAY */}
+        <div className="absolute bottom-28 right-8 md:right-16 z-10 hidden lg:block">
+          <div className="liquid-glass-strong rounded-2xl p-3 w-64">
+            <div className="aspect-[4/3] rounded-xl overflow-hidden">
+              <img
+                src={assetPath(heroImages[currentImg])}
+                alt=""
+                className="w-full h-full object-cover transition-opacity duration-700"
+              />
+            </div>
+            <div className="flex gap-1.5 justify-center mt-3">
+              {heroImages.map((_, i) => (
+                <button key={i} onClick={() => setCurrentImg(i)}
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width: currentImg === i ? "20px" : "6px",
+                    height: "6px",
+                    backgroundColor: currentImg === i ? "#C4956A" : "rgba(255,255,255,0.25)"
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
 
       </section>
 
