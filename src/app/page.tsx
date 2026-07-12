@@ -28,7 +28,6 @@ const statsDarkData = [
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLDivElement>(null);
   const watermarkRef = useRef<HTMLDivElement>(null);
   const { t, lang } = useLang();
@@ -45,40 +44,7 @@ export default function Home() {
     tl.fromTo(".hero-title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, "-=0.5");
     tl.fromTo(".hero-tagline", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, "-=0.5");
     tl.fromTo(".hero-buttons", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, "-=0.3");
-    tl.fromTo(imgRef.current, { scale: 1.15, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2 }, "-=1.0");
     return () => { tl.kill(); };
-  }, []);
-
-  // Image crossfade
-  useEffect(() => {
-    if (heroImages.length < 2) return;
-    let current = 0;
-    const interval = setInterval(() => {
-      current = (current + 1) % heroImages.length;
-      setCurrentImg(current);
-      const imgs = document.querySelectorAll(".hero-slide");
-      imgs.forEach((img, i) => {
-        gsap.to(img, {
-          opacity: i === current ? 1 : 0,
-          scale: i === current ? 1 : 1.08,
-          filter: i === current ? "saturate(0.7) brightness(0.85)" : "saturate(0.5) brightness(0.6)",
-          duration: 1.4, ease: "power2.inOut"
-        });
-      });
-    }, 4800);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Parallax
-  useEffect(() => {
-    if (!imgRef.current) return;
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: heroRef.current, start: "top top", end: "bottom top",
-        onUpdate: (self) => { if (imgRef.current) gsap.set(imgRef.current, { y: self.progress * 60 }); }
-      });
-    }, heroRef);
-    return () => { ctx.revert(); };
   }, []);
 
   // IntersectionObserver
@@ -132,16 +98,16 @@ export default function Home() {
         </a>
       </div>
 
-      {/* ===== HERO - Video Background + Bento Grid ===== */}
+      {/* ===== HERO - Full-screen Video Background ===== */}
       <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%)" }} />
-          {loaded && <img
+          <img
             src={assetPath(heroImages[currentImg])}
             alt=""
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out"
-            style={{ opacity: 0.35 }}
-          />}
+            style={{ opacity: loaded ? 0.35 : 0 }}
+          />
           <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" style={{ opacity: loaded ? 1 : 0 }}
             onLoadedData={() => setLoaded(true)}>
             <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" type="video/mp4" />
@@ -149,87 +115,39 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent" />
         </div>
 
-        <div className="w-full grid md:grid-cols-2 min-h-screen relative z-10">
-          {/* LEFT - Text */}
-          <div ref={textRef} className="flex flex-col justify-center px-8 md:px-16 lg:px-24 py-24 md:py-0 relative">
-            <div ref={watermarkRef} className="watermark-30" style={{ bottom: "0.2em", left: "0.15em", color: "rgba(196,149,106,0.08)" }}>30</div>
-            <div className="relative z-10">
-              <div className="hero-label mono text-[10px] tracking-[0.2em] mb-6 opacity-0" style={{ color: "#C4956A" }}>
-                {lang === "en" ? "EST. 1996 · 30 YEARS" : "始于1996 · 三十年"}
-              </div>
-              <h1 className="hero-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-8 opacity-0 text-white"
-                style={{ letterSpacing: "-0.04em" }}>
-                Sam<span style={{ color: "#C4956A" }}>.</span>Lee
-              </h1>
-              <p className="hero-tagline text-base sm:text-lg md:text-xl leading-relaxed max-w-md mb-12 opacity-0" style={{ color: "rgba(255,255,255,0.75)" }}>
-                {lang === "en"
-                  ? (<>furniture designer<br/>from China<br/>working globally.</>)
-                  : (<>办公家具设计师<br/>中国原创<br/>服务全球。</>)
-                }
-              </p>
-              <div className="hero-buttons flex gap-4 opacity-0">
-                <Link href="/furniture" className="mono inline-flex items-center gap-2 px-6 py-3 text-white text-sm font-medium transition-all duration-300 hover:bg-[#C4956A]"
-                  style={{ border: "1px solid rgba(255,255,255,0.3)", background: "transparent" }}>
-                  {t("btn.works")} <span className="text-lg">&rarr;</span>
-                </Link>
-                <Link href="/about" className="mono inline-flex items-center gap-2 px-6 py-3 text-sm font-medium transition-all duration-300"
-                  style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)" }}>
-                  {t("btn.learnMore")}
-                </Link>
-              </div>
+        <div className="relative z-10 flex items-center min-h-screen px-8 md:px-16 lg:px-24">
+          <div ref={watermarkRef} className="watermark-30" style={{ bottom: "0.2em", left: "0.15em", color: "rgba(196,149,106,0.08)" }}>30</div>
+          <div className="relative z-10 max-w-3xl">
+            <div className="hero-label mono text-[10px] tracking-[0.2em] mb-6 opacity-0" style={{ color: "#C4956A" }}>
+              {lang === "en" ? "EST. 1996 · 30 YEARS" : "始于1996 · 三十年"}
             </div>
-          </div>
-          {/* RIGHT - Bento Grid */}
-          <div ref={imgRef} className="h-[50vh] md:h-screen p-0 md:p-6 flex items-end md:items-center">
-            <div className="grid grid-cols-2 grid-rows-2 gap-3 w-full h-[60%] md:h-3/5">
-              {/* Main image */}
-              <div className="col-span-1 row-span-2 relative overflow-hidden rounded-xl">
-                {heroImages.map((img, i) => (
-                  <img key={i}
-                    src={img.startsWith("http") ? img : assetPath(img)}
-                    alt=""
-                    className="hero-slide absolute inset-0 w-full h-full object-cover"
-                    style={{ opacity: i === 0 ? 1 : 0, scale: i === 0 ? 1 : 1.08 }}
-                  />
-                ))}
-                <div className="absolute bottom-4 left-4 right-4 flex gap-1.5 z-10">
-                  {heroImages.map((_, i) => (
-                    <div key={i} className="flex-1 h-[2px] rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.15)" }}>
-                      <div className="h-full rounded-full transition-all duration-500 ease-out"
-                        style={{ width: "50%", background: "rgba(255,255,255,0.7)" }} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-              {/* Stats card */}
-              <div className="col-span-1 row-span-1 rounded-xl flex flex-col justify-center items-center p-5"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <span className="mono text-3xl md:text-4xl font-bold tracking-tight" style={{ color: "#C4956A" }}>
-                  10M+
-                </span>
-                <span className="mono text-[9px] tracking-[0.2em] mt-2 uppercase" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  {lang === "en" ? "Products Delivered" : "产品交付"}
-                </span>
-              </div>
-              {/* Tool icon marquee */}
-              <div className="col-span-1 row-span-1 rounded-xl overflow-hidden relative flex items-center"
-                style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
-                <div className="marquee-fade w-full overflow-hidden">
-                  <div className="animate-marquee-left flex gap-8 items-center py-5">
-                    {[...toolIcons, ...toolIcons].map((icon, i) => (
-                      <span key={i} className="text-2xl" style={{ filter: "saturate(0.2) brightness(0.5)" }}>{icon}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+            <h1 className="hero-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-8 opacity-0 text-white"
+              style={{ letterSpacing: "-0.04em" }}>
+              Sam<span style={{ color: "#C4956A" }}>.</span>Lee
+            </h1>
+            <p className="hero-tagline text-base sm:text-lg md:text-xl leading-relaxed max-w-md mb-12 opacity-0" style={{ color: "rgba(255,255,255,0.75)" }}>
+              {lang === "en"
+                ? (<>furniture designer<br/>from China<br/>working globally.</>)
+                : (<>办公家具设计师<br/>中国原创<br/>服务全球。</>)
+              }
+            </p>
+            <div className="hero-buttons flex gap-4 opacity-0">
+              <Link href="/furniture" className="mono inline-flex items-center gap-2 px-6 py-3 text-white text-sm font-medium transition-all duration-300 hover:bg-[#C4956A]"
+                style={{ border: "1px solid rgba(255,255,255,0.3)", background: "transparent" }}>
+                {t("btn.works")} <span className="text-lg">&rarr;</span>
+              </Link>
+              <Link href="/about" className="mono inline-flex items-center gap-2 px-6 py-3 text-sm font-medium transition-all duration-300"
+                style={{ border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)" }}>
+                {t("btn.learnMore")}
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== CAPABILITIES - Gradient Border Cards ===== */}
+      {/* ===== CAPABILITIES - Bento Grid + Gradient Border Cards ===== */}
       <section className="py-28 px-8 md:px-16 section-alt-warm">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div className="mb-16"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -239,24 +157,74 @@ export default function Home() {
               {lang === "en" ? "Core Expertise" : "核心专长"}
             </span>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {caps.map((c, i) => (
-              <motion.div key={c.label}
-                className="gradient-border-card-dark p-7"
-                style={{
-                  "--grad-a": gradCombos[i].a,
-                  "--grad-b": gradCombos[i].b,
-                } as React.CSSProperties}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}>
-                <h3 className="mono text-sm font-bold mb-3 text-white" style={{ letterSpacing: "0.02em" }}>
-                  {c.label}
-                </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{c.desc}</p>
-              </motion.div>
-            ))}
+
+          <div className="grid md:grid-cols-5 gap-6">
+            {/* LEFT - Bento Grid (col-span-2) */}
+            <div className="md:col-span-2">
+              <div className="grid grid-cols-2 grid-rows-2 gap-3 h-full min-h-[320px]">
+                {/* Main image */}
+                <div ref={imgRef} className="col-span-1 row-span-2 relative overflow-hidden rounded-xl">
+                  {heroImages.map((img, i) => (
+                    <img key={i}
+                      src={img.startsWith("http") ? img : assetPath(img)}
+                      alt=""
+                      className="hero-slide absolute inset-0 w-full h-full object-cover"
+                      style={{ opacity: i === 0 ? 1 : 0, scale: i === 0 ? 1 : 1.08 }}
+                    />
+                  ))}
+                  <div className="absolute bottom-3 left-3 right-3 flex gap-1.5 z-10">
+                    {heroImages.map((_, i) => (
+                      <div key={i} className="flex-1 h-[2px] rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.15)" }}>
+                        <div className="h-full rounded-full transition-all duration-500 ease-out"
+                          style={{ width: "50%", background: "rgba(255,255,255,0.7)" }} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Stats card */}
+                <div className="col-span-1 row-span-1 rounded-xl flex flex-col justify-center items-center p-4"
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                  <span className="mono text-3xl md:text-4xl font-bold tracking-tight" style={{ color: "#C4956A" }}>
+                    10M+
+                  </span>
+                  <span className="mono text-[9px] tracking-[0.2em] mt-2 uppercase" style={{ color: "rgba(255,255,255,0.35)" }}>
+                    {lang === "en" ? "Products Delivered" : "产品交付"}
+                  </span>
+                </div>
+                {/* Tool icon marquee */}
+                <div className="col-span-1 row-span-1 rounded-xl overflow-hidden relative flex items-center"
+                  style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+                  <div className="marquee-fade w-full overflow-hidden">
+                    <div className="animate-marquee-left flex gap-8 items-center py-5">
+                      {[...toolIcons, ...toolIcons].map((icon, i) => (
+                        <span key={i} className="text-2xl" style={{ filter: "saturate(0.2) brightness(0.5)" }}>{icon}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT - Gradient Border Cards (col-span-3) */}
+            <div className="md:col-span-3 grid sm:grid-cols-2 gap-4">
+              {caps.map((c, i) => (
+                <motion.div key={c.label}
+                  className="gradient-border-card-dark p-6"
+                  style={{
+                    "--grad-a": gradCombos[i].a,
+                    "--grad-b": gradCombos[i].b,
+                  } as React.CSSProperties}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}>
+                  <h3 className="mono text-sm font-bold mb-3 text-white" style={{ letterSpacing: "0.02em" }}>
+                    {c.label}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{c.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
