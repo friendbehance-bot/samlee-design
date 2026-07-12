@@ -46,19 +46,36 @@ export default function Home() {
     return () => { tl.kill(); };
   }, []);
 
-  // Hero background image crossfade
+  // Hero background image crossfade (hero-bg-slide)
   useEffect(() => {
     if (heroImages.length < 2) return;
     let current = 0;
     const interval = setInterval(() => {
       current = (current + 1) % heroImages.length;
-      const imgs = document.querySelectorAll(".hero-bg-slide");
-      imgs.forEach((img, i) => {
+      document.querySelectorAll(".hero-bg-slide").forEach((img, i) => {
         gsap.to(img, {
           opacity: i === current ? 0.35 : 0,
           scale: i === current ? 1 : 1.06,
           filter: i === current ? "saturate(0.7) brightness(0.85)" : "saturate(0.5) brightness(0.6)",
           duration: 1.6, ease: "power2.inOut"
+        });
+      });
+    }, 4800);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Core Expertise Bento image crossfade (hero-slide)
+  useEffect(() => {
+    if (heroImages.length < 2) return;
+    let current = 1;
+    const interval = setInterval(() => {
+      current = (current + 1) % heroImages.length;
+      document.querySelectorAll(".hero-slide").forEach((img, i) => {
+        gsap.to(img, {
+          opacity: i === current ? 1 : 0,
+          scale: i === current ? 1 : 1.08,
+          filter: i === current ? "saturate(0.7) brightness(0.85)" : "saturate(0.5) brightness(0.6)",
+          duration: 1.4, ease: "power2.inOut"
         });
       });
     }, 4800);
@@ -113,7 +130,6 @@ export default function Home() {
       <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-black">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%)" }} />
-          {/* Layered background images for GSAP crossfade */}
           {heroImages.map((img, i) => (
             <img key={i}
               src={img.startsWith("http") ? img : assetPath(img)}
@@ -176,7 +192,7 @@ export default function Home() {
             {/* LEFT - Bento Grid (col-span-2) */}
             <div className="md:col-span-2">
               <div className="grid grid-cols-2 grid-rows-2 gap-3 h-full min-h-[320px]">
-                {/* Main image */}
+                {/* Main image with crossfade */}
                 <div className="col-span-1 row-span-2 relative overflow-hidden rounded-xl">
                   {heroImages.map((img, i) => (
                     <img key={i}
