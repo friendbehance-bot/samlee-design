@@ -127,8 +127,17 @@ export default function Home() {
       </section>
 
       {/* CAPABILITIES */}
-      <section className="py-28 px-8 md:px-16" style={{ background: "#000" }}>
-        <div className="max-w-5xl mx-auto">
+      <section className="relative py-28 px-8 md:px-16 overflow-hidden" style={{ background: "#000" }}>
+        {/* Product rotation background */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={assetPath(heroImages[currentImg])}
+            alt=""
+            className="w-full h-full object-cover transition-opacity duration-[1400ms] ease-in-out"
+          />
+          <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.78)" }} />
+        </div>
+        <div className="max-w-5xl mx-auto relative z-10">
           <div className="mb-16 reveal-up">
             <span className="mono text-[10px] tracking-[0.25em] uppercase" style={{ color: "#C4956A" }}>
               {lang === "en" ? "Core Expertise" : "\u6838\u5fc3\u4e13\u957f"}
@@ -136,7 +145,7 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px reveal-stagger" style={{ background: "rgba(255,255,255,0.06)" }}>
             {caps.map((c) => (
-              <div key={c.label} className="cap-card" style={{ background: "#000" }}>
+              <div key={c.label} className="cap-card" style={{ background: "rgba(0,0,0,0.6)" }}>
                 <h3 className="mono text-sm font-bold mb-3 text-white" style={{ letterSpacing: "0.02em" }}>{c.label}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{c.desc}</p>
               </div>
