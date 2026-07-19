@@ -67,5 +67,7 @@ html { scroll-behavior: smooth; }
 .side-contact a:hover { background: #C4956A; border-color: #C4956A; padding-right: 20px; }
 .side-contact span { font-family: "Azeret Mono", monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; }
 .photo-filter-active { background: #C4956A !important; color: #000 !important; }
-== PREMIUM UPGRADE: Glow BG ===== */
+
+
 .glow-bg { position: absolute; border-radius: 50%; filter: blur(45px); pointer-events: none; opacity: 0.6; }
+
