@@ -35,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
         <meta name="theme-color" content="#000000" />
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         <script type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org", "@type": "Person", name: "Sam Lee",
