@@ -51,9 +51,14 @@ export default function Footer() {
             <a href="https://www.pinterest.com/friendsz9014/" target="_blank" rel="noopener" className="transition-all duration-300" style={{ color: "rgba(255,255,255,0.4)" }}>Pins</a>
             <a href="https://www.linkedin.com/in/sam-lee-583aa041a/" target="_blank" rel="noopener" className="transition-all duration-300" style={{ color: "rgba(255,255,255,0.4)" }}>LinkedIn</a>
           </div>
-          <p className="text-xs" style={{ color: "rgba(196,149,106,0.4)" }}>
-            &copy; {year} Sam<span style={{ color: "#C4956A" }}>.</span>Lee
-          </p>
+          <div className="flex items-center gap-6">
+            <p className="text-xs" style={{ color: "rgba(196,149,106,0.4)" }}>
+              &copy; {year} Sam<span style={{ color: "#C4956A" }}>.</span>Lee
+            </p>
+            <span className="text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
+              <span id="busuanzi_value_site_pv"></span> visits
+            </span>
+          </div>
         </div>
       </div>
     </footer>
